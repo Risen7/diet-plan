@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Html CRUD with Pure JavaScript
+    </title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>
+                <form onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
+                    <div>
+                        <label>Meal</label><label class="validation-error hide" id="mealValidationError">This field is required.</label>
+                        <input type="text" name="meal" id="meal">
+                    </div>
+                    <div>
+                        <label>Date</label>
+                        <input type="date" name="date" id="date" required>
+                    </div>
+                    <div>
+                        <label>Food 1</label>
+                        <input type="text" name="food-1" id="food-1">
+                    </div>
+                    <div>
+                        <label>Food 2</label>
+                        <input type="text" name="food-2" id="food-2">
+                    </div>
+                    <div>
+                        <label>Food 3</label>
+                        <input type="text" name="food-3" id="food-3">
+                    </div>
+                    <div>
+                        <label>Drinks</label>
+                        <input type="text" name="drinks" id="drinks">
+                    </div>
+                    <div>
+                        <!-- <label>Total Protein</label>
+                        <input type="text" name="protein" id="protein" readonly disabled>
+                    </div> -->
+                    <div  class="form-action-buttons">
+                        <input type="submit" value="Submit">
+                    </div>
+                </form>
+            </td>
+            <td>
+                <table class="list" id="employeeList">
+                    <thead>
+                        <tr>
+                            <th>Meal</th>
+                            <th>Date</th>
+                            <th>Food 1</th>
+                            <th>Food 2</th>
+                            <th>Food 3</th>
+                            <th>Drinks</th>
+                            <th>Total Protein</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <script src="script.js"></script>
+</body>
+
+</html>
