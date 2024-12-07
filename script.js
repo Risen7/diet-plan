@@ -1,6 +1,9 @@
 var selectedRow = null
-let fud1 = document.getElementById("food-1");
-let fud2 = document.getElementById("food-2");
+// var fud1 = document.getElementById("food-1").value;
+// var fud2 = document.getElementById("food-2").value;
+var food1 = 0;
+var food2 = 0;
+var totalProtein = 0;
 
 function onFormSubmit() {
     if (validate()) {
@@ -11,33 +14,28 @@ function onFormSubmit() {
             updateRecord(formData);
         resetForm();
     }
+
 }
 
-if(fud1 = "chicken breast") {
-    food1 = 25;
-} else if(fud1 = "pork") {
-    food2 = 27;
-}
 
-// if(document.getElementById("food1") = "chicken breast") {
+//   if (document.getElementById("food-2") == "rice") {
+//     food2 = 21;
+//   } else if(document.getElementById("food-1") == "tofu") {
+//     food2 = 26
+//   }
+
+// if(fud1 = "chicken breast") {
 //     food1 = 25;
-// } else if(document.getElementById("food1") = "tuna in can") {
-//     food1 = 21;
-// }
-
-
-// if(document.getElementById("food2") = "rice") {
-//     food2 = 5;
-// } else if(document.getElementById("food1") = "half rice") {
-//     food2 = 2.5;
+// } else if(fud1 = "pork") {
+//     food2 = 27;
 // }
 
 
 
 // totalz = food1 + food2;
 
-// food1 = 4;
-// food2 = 2;
+
+
 
 function readFormData() {
     var formData = {};
@@ -47,8 +45,31 @@ function readFormData() {
     formData["food2"] = document.getElementById("food-2").value;
     formData["food3"] = document.getElementById("food-3").value;
     formData["drinks"] = document.getElementById("drinks").value;
-    // document.getElementById("prtein").value = 5;
-    formData.totalProtein = food1 + food2 ;
+
+    //-------------------------------------------------------------------
+    var fud1 = document.getElementById("food-1").value;
+    var fud2 = document.getElementById("food-2").value;
+
+    if(fud1 == "chicken breast"){
+        food1 = 25;
+    } else if(fud1 == "century tuna") {
+        food1 = 22;
+    } else {
+        food1 = 0;
+    }
+
+    if(fud2 == "rice"){
+        food2 = 5;
+    } else if(fud2 == "oatmeal") {
+        food2 = 7;
+    } else {
+        food2 = 0;
+    }
+
+    //--------------------------------------------------------------------
+
+    formData.totalProtein = food1 + food2;
+
     return formData;
 }
 
@@ -72,6 +93,9 @@ function insertNewRecord(data) {
     cell7 = newRow.insertCell(7);
     cell7.innerHTML = `<a onClick="onEdit(this)">Edit</a>
                        <a onClick="onDelete(this)">Delete</a>`;
+
+  
+    console.log(totalProtein);
 }
 
 function resetForm() {
@@ -81,7 +105,7 @@ function resetForm() {
     document.getElementById("food-2").value = "";
     document.getElementById("food-3").value = "";
     document.getElementById("drinks").value = "";
-    document.getElementById("protein").value = "";
+    // document.getElementById("protein").value = "";
     selectedRow = null;
 }
 
@@ -93,7 +117,7 @@ function onEdit(td) {
     document.getElementById("food-2").value = selectedRow.cells[3].innerHTML;
     document.getElementById("food-3").value = selectedRow.cells[4].innerHTML;
     document.getElementById("drinks").value = selectedRow.cells[5].innerHTML;
-    document.getElementById("protein").value = selectedRow.cells[6].innerHTML;
+    // document.getElementById("protein").value = selectedRow.cells[6].innerHTML;
 }
 function updateRecord(formData) {
     selectedRow.cells[0].innerHTML = formData.meal;
@@ -102,7 +126,7 @@ function updateRecord(formData) {
     selectedRow.cells[3].innerHTML = formData.food2;
     selectedRow.cells[4].innerHTML = formData.food3;
     selectedRow.cells[5].innerHTML = formData.drinks;
-    selectedRow.cells[6].innerHTML = formData.protein;
+    // selectedRow.cells[6].innerHTML = formData.protein;
 }
 
 function onDelete(td) {
