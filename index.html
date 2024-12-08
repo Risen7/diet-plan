@@ -11,7 +11,7 @@
 <body>
     <table>
         <tr>
-            <td>
+            <td class="form-1">
                 <form onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
                     <div>
                         <label>Meal</label><label class="validation-error hide" id="mealValidationError">This field is required.</label>
@@ -19,18 +19,18 @@
                     </div>
                     <div>
                         <label>Date</label>
-                        <input type="date" name="date" id="date" required>
+                        <input type="date" name="date" id="date" >
                     </div>
                     <div>
-                        <label>Food 1</label>
+                        <label>Main Dish</label>
                         <input type="text" name="food-1" id="food-1">
                     </div>
                     <div>
-                        <label>Food 2</label>
+                        <label>Side Dish</label>
                         <input type="text" name="food-2" id="food-2">
                     </div>
                     <div>
-                        <label>Food 3</label>
+                        <label>Desert/2nd Dish</label>
                         <input type="text" name="food-3" id="food-3">
                     </div>
                     <div>
@@ -46,15 +46,15 @@
                     </div>
                 </form>
             </td>
-            <td>
+            <td class="form-2">
                 <table class="list" id="employeeList">
                     <thead>
                         <tr>
                             <th>Meal</th>
                             <th>Date</th>
-                            <th>Food 1</th>
-                            <th>Food 2</th>
-                            <th>Food 3</th>
+                            <th>Main Dish</th>
+                            <th>Side Dish</th>
+                            <th>Desert / 2nd Dish</th>
                             <th>Drinks</th>
                             <th>Total Protein</th>
                             <th></th>
