@@ -15,11 +15,25 @@ table.list{
 
 td, th {
     border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
+    text-align: center;
+    padding: 8px;   
 }
+
+form div label {
+    color: white;
+}
+
 tr:nth-child(even),table.list thead>tr {
-    background-color: #dddddd;
+    background-color: gray;
+    color: white;
+}
+
+/* tr {
+    background-color: black;
+} */
+
+td.form-1 {
+    background-color: gray;
 }
 
 input[type=text], input[type=number], input[type=date] {
@@ -48,10 +62,19 @@ form div.form-action-buttons{
 }
 
 a{
+    background: #ffc14e;
+    padding: 8px;
     cursor: pointer;
-    text-decoration: underline;
-    color: #0000ee;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #ffffff;
     margin-right: 4px;
+    border-radius: 5px;
+}
+
+a:hover {
+    background-color: #000000;
+    color: #ffc14e;
 }
 
 label.validation-error{
