@@ -3,6 +3,8 @@ var selectedRow = null
 // var fud2 = document.getElementById("food-2").value;
 var food1 = 0;
 var food2 = 0;
+var food3 = 0;
+var drinks = 0;
 var totalProtein = 0;
 
 function onFormSubmit() {
@@ -49,26 +51,82 @@ function readFormData() {
     //-------------------------------------------------------------------
     var fud1 = document.getElementById("food-1").value;
     var fud2 = document.getElementById("food-2").value;
+    var fud3 = document.getElementById("food-3").value;
+    var bev = document.getElementById("drinks").value;
 
     if(fud1 == "chicken breast"){
-        food1 = 25;
+        food1 = 28;
     } else if(fud1 == "century tuna") {
         food1 = 22;
+    } else if(fud1 == "beef dish") {
+        food1 = 27;
+    } else if(fud1 == "fried chicken") {
+        food1 = 23;
+    } else if(fud1 == "monggo") {
+        food1 = 25;
+    } else if(fud1 == "pork dish") {
+        food1 = 25;
+    } else if(fud1 == "fish dish") {
+        food1 = 28;
+    } else if(fud1 == "spanish style") {
+        food1 = 24;
+    } else if(fud1 == "sardines") {
+        food1 = 24;
     } else {
         food1 = 0;
     }
 
-    if(fud2 == "rice"){
+    if(fud2 == "one rice"){
         food2 = 5;
-    } else if(fud2 == "oatmeal") {
-        food2 = 7;
+    } else if(fud2 == "half rice") {
+        food2 = 2.5;
+    } else if(fud2 == "one & half rice") {
+        food2 = 7.5;
+    } else if(fud2 == "bread") {
+        food2 = 3;
     } else {
         food2 = 0;
     }
 
+    if(fud3 == "tofu"){
+        food3 = 15;
+    } else if(fud3 == "egg pie") {
+        food3 = 6;
+    } else if(fud3 == "bread") {
+        food3 = 3;
+    } else if(fud3 == "egg") {
+        food3 = 6;
+    } else if(fud3 == "taho") {
+        food3 = 15;
+    } else if(fud3 == "peanuts") {
+        food3 = 10;
+    } else {
+        food3 = 0;
+    }
+
+    if(bev == "water"){
+        drinks = 0;
+    } else if(bev == "softdrinks") {
+        drinks = 0;
+    } else if(bev == "milk") {
+        drinks = 5;
+    } else if(bev == "vitamilk") {
+        drinks = 8;
+    } else if(bev == "soy secretz") {
+        drinks = 7;
+    } else if(bev == "yakult") {
+        drinks = 0.9;
+    } else if(bev == "juice") {
+        drinks = 0.2;
+    } else if(bev == "protein shake") {
+        drinks = 30;
+    } else {
+        drinks = 0;
+    }
+
     //--------------------------------------------------------------------
 
-    formData.totalProtein = food1 + food2;
+    formData.totalProtein = food1 + food2 + food3 + drinks;
 
     return formData;
 }
