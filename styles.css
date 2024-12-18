@@ -1,9 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 body {
+    font-family: 'Poppins', sans-serif;
     width: 100wv;
 }
 
 body > table{
     width: 100%;
+}
+
+tbody tr {
+    border: 3px solid gray;
 }
 
 table{
@@ -16,7 +23,14 @@ table.list{
 td, th {
     border: 1px solid #dddddd;
     text-align: center;
-    padding: 8px;   
+    padding: 8px;  
+    margin-inline: 10px ; 
+}
+
+td.form-2 {
+    border:none;
+    padding: 0;
+    margin-right: 0;
 }
 
 form div label {
@@ -88,6 +102,15 @@ td:nth-child(2) {
 
 .hide{
     display:none;
+}
+
+form div label, thead tr th, input{
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+thead tr th {
+    font-weight: 400;
 }
 
 @media (max-width: 910Ppx) {
