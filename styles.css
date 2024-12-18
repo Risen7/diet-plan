@@ -33,14 +33,14 @@ table.list{
 td h1 {
     font-weight: 600;
     letter-spacing: 2px;
-    color: rgb(3, 20, 119);
+    color: rgb(36, 147, 238);
 }
 
 td, th {
     border: 1px solid #dddddd;
     text-align: center;
     padding: 8px;  
-    margin-inline: 10px ; 
+    margin-inline: 0px ; 
 }
 
 td.form-1 {
@@ -102,7 +102,7 @@ form div.form-action-buttons{
 }
 
 a{
-    background: #ffc14e;
+    background: rgb(36, 147, 238);
     padding: 8px;
     cursor: pointer;
     text-decoration: none;
@@ -114,7 +114,7 @@ a{
 
 a:hover {
     background-color: #000000;
-    color: #ffc14e;
+    color: rgb(36, 147, 238);
 }
 
 label.validation-error{
@@ -138,10 +138,21 @@ form div label, thead tr th{
 form div input {
     font-size: 1rem;
     text-transform: none;
+    transition: all .4s;
+}
+
+form div input:hover {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
 thead tr th {
     font-weight: 400;
+}
+
+div.form-action-buttons input {
+    background: rgb(36, 147, 238);
+    color: white;
+    font-size: 1.2rem;
 }
 
 @media screen and (max-width: 1098px) {
