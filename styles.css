@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 body {
-    background-image: linear-gradient(to bottom right, rgb(98, 171, 255), rgb(0, 38, 63));
+    background-image: linear-gradient(to bottom right, rgb(98, 171, 255), rgb(255, 40, 244));
     font-family: 'Poppins', sans-serif;
     width: 100wv;
     height: 100vh;
@@ -18,9 +18,13 @@ tbody {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+table.list tbody {
+    box-shadow: none;
+}
+
 tbody tr {
     background: white;
-    border: 3px solid gray;
+    /* border: 3px solid gray; */
 }
 
 table{
