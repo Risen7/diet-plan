@@ -4,7 +4,7 @@ body {
     background-image: linear-gradient(to bottom right, rgb(98, 171, 255), rgb(255, 40, 244));
     font-family: 'Poppins', sans-serif;
     width: 100wv;
-    height: 100vh;
+    height: 97.8vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,8 +35,11 @@ table.list{
 }
 
 td h1 {
+    padding-block: 10px;
+    text-wrap: nowrap;
+    background: rgb(236, 236, 236);
     font-weight: 600;
-    letter-spacing: 2px;
+    letter-spacing: -1px;
     color: rgb(36, 147, 238);
 }
 
@@ -67,9 +70,13 @@ form div label {
 }
 
 tr:nth-child(even),table.list thead>tr {
-    background-color: gray;
-    color: white;
+    background-color: rgb(236, 236, 236);
+    color: rgb(0, 0, 0);
 }
+
+/* thead tr {
+    background-color: #000;
+} */
 
 /* tr {
     background-color: black;
@@ -107,7 +114,9 @@ form div.form-action-buttons{
 
 a{
     background: rgb(36, 147, 238);
-    padding: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 5px;
     cursor: pointer;
     text-decoration: none;
     text-transform: uppercase;
@@ -149,12 +158,17 @@ form div input:hover {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
+table.list thead tr {
+    background-color: #000;
+    color: white;
+}
+
 thead tr th {
     font-weight: 400;
 }
 
 div.form-action-buttons input {
-    background: rgb(36, 147, 238);
+    background: rgb(0, 0, 0);
     color: white;
     font-size: 1.2rem;
 }
