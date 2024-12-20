@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 body {
-    background-image: linear-gradient(to bottom right, rgb(98, 171, 255), rgb(255, 40, 244));
+    background-image: linear-gradient(to bottom right, rgb(9, 122, 252), rgb(255, 40, 244));
     font-family: 'Poppins', sans-serif;
     width: 100wv;
-    height: 97.8vh;
+    /* height: 97.8vh; */
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,6 +42,12 @@ td h1 {
     font-weight: 600;
     letter-spacing: -1px;
     color: rgb(36, 147, 238);
+    transition: all 0.4s;
+}
+
+td h1:hover {
+    background: linear-gradient(45deg, royalblue, pink);
+    color: #000;
 }
 
 td, th {
@@ -106,6 +113,11 @@ input[type=submit]{
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    box-shadow: none;
+}
+
+input[type=submit]:hover {
+    background: linear-gradient(45deg, royalblue, pink);
 }
 
 form div.form-action-buttons{
@@ -154,7 +166,7 @@ form div input {
     transition: all .4s;
 }
 
-form div input:hover {
+form div input[type=text]:hover,form div input[type=number]:hover,form div input[type=date]:hover {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -165,6 +177,10 @@ table.list thead tr {
 
 thead tr th {
     font-weight: 400;
+}
+
+thead tr th:hover {
+    background: linear-gradient(45deg, royalblue, pink);
 }
 
 div.form-action-buttons input {
@@ -178,3 +194,87 @@ div.form-action-buttons input {
         padding-inline: 20px;
     }
   }
+
+.dropdown {
+    min-width: 15em;
+    position: relative;
+    margin: 2em;
+}
+
+.dropdown * {
+    box-sizing: border-box;
+}
+
+.select {
+    background: #2a2f3b;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px #2a2f3b solid;
+    border-radius: 0.5em;
+    padding: 1em;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.selected-clicked {
+    border: 2px #26489a solid;
+    box-shadow: 0 0 0.8em #26489a;
+}
+
+.select:hover {
+    background: #323741;
+}
+
+.caret {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #fff;
+    transition: 0.3s;
+}
+
+.caret-rotate {
+    transform: rotate(180deg);
+}
+
+.menu {
+    list-style: none;
+    padding: 0.2em 0.5em;
+    background: #323741;
+    border: 1px #363a43 solid;
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+    border-radius: 0.5em;
+    color: #9fa5b5;
+    position: absolute;
+    top: 3em;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+    opacity: 0;
+    display: none;
+    transition: 0.2s;
+    z-index: 1;
+}
+
+.menu li {
+    padding: 0.7em 0.5em;
+    margin: 0.3em 0;
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+
+.menu li:hover {
+    background: #2a2d35;
+}
+
+.active {
+    background: #23242a;
+}
+
+.menu-open {
+    display: block;
+    opacity: 1;
+}
