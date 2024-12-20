@@ -280,3 +280,7 @@ div.form-action-buttons input {
     display: block;
     opacity: 1;
 }
+
+td.form-1 form div.caret {
+    margin-bottom: 0px;
+}
