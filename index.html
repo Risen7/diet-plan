@@ -3,7 +3,7 @@
 
 <head>
     <title>
-        Html CRUD with Pure JavaScript
+        DIET TRACKER WEBSITE
     </title>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -15,12 +15,25 @@
                 <h1>DIET TRACKER</h1>
                 <form onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
                     <div>
-                        <label>Meal</label><label class="validation-error hide" id="mealValidationError">This field is required.</label>
+                        <label>Meal</label><label class="validation-error hide" id="mealValidationError">-This field is required.</label>
                         <input type="text" name="meal" id="meal">
                     </div>
                     <div>
                         <label>Date</label>
                         <input type="date" name="date" id="date" >
+                        <div class="dropdown">
+                            <div class="select">
+                                <span class="selected">Pork Dish</span>
+                                <div class="caret"></div>
+                            </div>
+                            <ul class="menu">
+                                <li>Chicken Dish</li>
+                                <li>Beef Dish</li>
+                                <li>Fish Dish</li>
+                                <li class="active">Pork Dish</li>
+                                <li>Egg Dish</li>
+                            </ul>
+                        </div>
                     </div>
                     <div>
                         <label>Main Dish</label>
