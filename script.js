@@ -1,253 +1,286 @@
-// https://www.youtube.com/watch?v=hBbrGFCszU4 - drop down menu
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-var selectedRow = null
-// var fud1 = document.getElementById("food-1").value;
-// var fud2 = document.getElementById("food-2").value;
-var food1 = 0;
-var food2 = 0;
-var food3 = 0;
-var drinks = 0;
-var totalProtein = 0;
+body {
+    background-image: linear-gradient(to bottom right, rgb(9, 122, 252), rgb(255, 40, 244));
+    font-family: 'Poppins', sans-serif;
+    width: 100wv;
+    height: 97.8vh;
+    /* height: 100%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-function onFormSubmit() {
-    if (validate()) {
-        var formData = readFormData();
-        if (selectedRow == null)
-            insertNewRecord(formData);
-        else
-            updateRecord(formData);
-        resetForm();
+body > table{
+    width: 90%;
+}
+
+tbody {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+table.list tbody {
+    box-shadow: none;
+}
+
+tbody tr {
+    background: white;
+    /* border: 3px solid gray; */
+}
+
+table{
+    border-collapse: collapse;
+}
+table.list{
+    width:100%;
+}
+
+td h1 {
+    padding-block: 10px;
+    text-wrap: nowrap;
+    background: rgb(236, 236, 236);
+    font-weight: 600;
+    letter-spacing: -1px;
+    color: rgb(36, 147, 238);
+    transition: all 0.4s;
+}
+
+td h1:hover {
+    background: linear-gradient(45deg, royalblue, pink);
+    color: #000;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;  
+    margin-inline: 0px ; 
+}
+
+td.form-1 {
+    padding-inline: 35px;
+}
+
+td.form-2 {
+    border:none;
+    padding: 0;
+    margin-right: 0;
+}
+
+td.form-1 form div {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+form div label {
+    color: rgb(61, 61, 61);
+}
+
+tr:nth-child(even),table.list thead>tr {
+    background-color: rgb(236, 236, 236);
+    color: rgb(0, 0, 0);
+}
+
+/* thead tr {
+    background-color: #000;
+} */
+
+/* tr {
+    background-color: black;
+} */
+
+td.form-1 {
+    background-color: rgb(255, 255, 255);
+    letter-spacing: 1px;
+}
+
+input[type=text], input[type=number], input[type=date] {
+    width: 100%;
+    padding: 1em;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit]{
+    width: 30%;
+    background-color: #ddd;
+    color: #000;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+input[type=submit]:hover {
+    background: linear-gradient(45deg, royalblue, pink);
+}
+
+form div.form-action-buttons{
+    text-align: right;
+}
+
+a{
+    background: rgb(36, 147, 238);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-right: 4px;
+    border-radius: 5px;
+}
+
+a:hover {
+    background-color: #000000;
+    color: rgb(36, 147, 238);
+}
+
+label.validation-error{
+    color:   red;
+    margin-left: 5px;
+}
+
+td:nth-child(2) {
+    display: flex;
+}
+
+.hide{
+    display:none;
+}
+
+form div label, thead tr th{
+    font-size: 1rem;
+    text-transform: capitalize;
+}
+
+form div input {
+    font-size: 1rem;
+    text-transform: none;
+    transition: all .4s;
+}
+
+form div input[type=text]:hover,form div input[type=number]:hover,form div input[type=date]:hover {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+table.list thead tr {
+    background-color: #000;
+    color: white;
+}
+
+thead tr th {
+    font-weight: 400;
+}
+
+thead tr th:hover {
+    background: linear-gradient(45deg, royalblue, pink);
+}
+
+div.form-action-buttons input {
+    background: rgb(0, 0, 0);
+    color: white;
+    font-size: 1.2rem;
+}
+
+@media screen and (max-width: 1098px) {
+    td.form-1 {
+        padding-inline: 20px;
     }
+  }
 
+/* ---------------------------------------------------------DROPDOWN SECTION---------------------------------------------------------------------- */
+
+.dropdown {
+    min-width: 15em;
+    position: relative;
+    /* margin: 2em; */
 }
 
-
-//   if (document.getElementById("food-2") == "rice") {
-//     food2 = 21;
-//   } else if(document.getElementById("food-1") == "tofu") {
-//     food2 = 26
-//   }
-
-// if(fud1 = "chicken breast") {
-//     food1 = 25;
-// } else if(fud1 = "pork") {
-//     food2 = 27;
-// }
-
-
-
-// totalz = food1 + food2;
-
-
-function readFormData() {
-    var formData = {};
-    formData["meal"] = document.getElementById("meal").value;
-    formData["date"] = document.getElementById("date").value;
-    formData["food1"] = document.getElementById("food-1").value;
-    formData["food2"] = document.getElementById("food-2").value;
-    formData["food3"] = document.getElementById("food-3").value;
-    formData["drinks"] = document.getElementById("drinks").value;
-
-    //-------------------------------------------------------------------
-    var fud1 = document.getElementById("food-1").value;
-    var fud2 = document.getElementById("food-2").value;
-    var fud3 = document.getElementById("food-3").value;
-    var bev = document.getElementById("drinks").value;
-
-    if(fud1 == "chicken breast"){
-        food1 = 28;
-    } else if(fud1 == "century tuna") {
-        food1 = 22;
-    } else if(fud1 == "beef dish") {
-        food1 = 27;
-    } else if(fud1 == "fried chicken") {
-        food1 = 23;
-    } else if(fud1 == "monggo") {
-        food1 = 25;
-    } else if(fud1 == "pork dish") {
-        food1 = 25;
-    } else if(fud1 == "fish dish") {
-        food1 = 28;
-    } else if(fud1 == "spanish style") {
-        food1 = 24;
-    } else if(fud1 == "sardines") {
-        food1 = 24;
-    } else {
-        food1 = 0;
-    }
-
-    if(fud2 == "one rice"){
-        food2 = 5;
-    } else if(fud2 == "half rice") {
-        food2 = 2.5;
-    } else if(fud2 == "one & half rice") {
-        food2 = 7.5;
-    } else if(fud2 == "bread") {
-        food2 = 3;
-    } else {
-        food2 = 0;
-    }
-
-    if(fud3 == "tofu"){
-        food3 = 15;
-    } else if(fud3 == "egg pie") {
-        food3 = 6;
-    } else if(fud3 == "bread") {
-        food3 = 3;
-    } else if(fud3 == "egg") {
-        food3 = 6;
-    } else if(fud3 == "taho") {
-        food3 = 15;
-    } else if(fud3 == "peanuts") {
-        food3 = 10;
-    } else {
-        food3 = 0;
-    }
-
-    if(bev == "water"){
-        drinks = 0;
-    } else if(bev == "softdrinks") {
-        drinks = 0;
-    } else if(bev == "milk") {
-        drinks = 5;
-    } else if(bev == "vitamilk") {
-        drinks = 8;
-    } else if(bev == "soy secretz") {
-        drinks = 7;
-    } else if(bev == "yakult") {
-        drinks = 0.9;
-    } else if(bev == "juice") {
-        drinks = 0.2;
-    } else if(bev == "protein shake") {
-        drinks = 30;
-    } else {
-        drinks = 0;
-    }
-
-    //--------------------------------------------------------------------
-
-    formData.totalProtein = food1 + food2 + food3 + drinks;
-
-    return formData;
+.dropdown * {
+    box-sizing: border-box;
 }
 
-function insertNewRecord(data) {
-    var table = document.getElementById("employeeList").getElementsByTagName('tbody')[0];
-    var newRow = table.insertRow(table.length);
-    cell1 = newRow.insertCell(0);
-    cell1.innerHTML = data.meal;
-    cell2 = newRow.insertCell(1);
-    cell2.innerHTML = data.date;
-    cell3 = newRow.insertCell(2);
-    cell3.innerHTML = data.food1;
-    cell4 = newRow.insertCell(3);
-    cell4.innerHTML = data.food2;
-    cell5 = newRow.insertCell(4);
-    cell5.innerHTML = data.food3;
-    cell6 = newRow.insertCell(5);
-    cell6.innerHTML = data.drinks;
-    cell7 = newRow.insertCell(6);
-    cell7.innerHTML = data.totalProtein;
-    cell7 = newRow.insertCell(7);
-    cell7.innerHTML = `<a onClick="onEdit(this)">Edit</a>
-                       <a onClick="onDelete(this)">Delete</a>`;
-
-  
-    console.log(totalProtein);
+.select {
+    background: #ffffff;
+    color: #0c0c0c;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px #ccc solid;
+    border-radius: 0.25em;
+    padding: 1em;
+    cursor: pointer;
+    transition: background 0.3s;
 }
 
-function resetForm() {
-    document.getElementById("meal").value = "";
-    document.getElementById("date").value = "";
-    document.getElementById("food-1").value = "";
-    document.getElementById("food-2").value = "";
-    document.getElementById("food-3").value = "";
-    document.getElementById("drinks").value = "";
-    // document.getElementById("protein").value = "";
-    selectedRow = null;
+.selected-clicked {
+    border: 2px #26489a solid;
+    box-shadow: 0 0 0.8em #26489a;
 }
 
-function onEdit(td) {
-    selectedRow = td.parentElement.parentElement;
-    document.getElementById("meal").value = selectedRow.cells[0].innerHTML;
-    document.getElementById("date").value = selectedRow.cells[1].innerHTML;
-    document.getElementById("food-1").value = selectedRow.cells[2].innerHTML;
-    document.getElementById("food-2").value = selectedRow.cells[3].innerHTML;
-    document.getElementById("food-3").value = selectedRow.cells[4].innerHTML;
-    document.getElementById("drinks").value = selectedRow.cells[5].innerHTML;
-    // document.getElementById("protein").value = selectedRow.cells[6].innerHTML;
-}
-function updateRecord(formData) {
-    selectedRow.cells[0].innerHTML = formData.meal;
-    selectedRow.cells[1].innerHTML = formData.date;
-    selectedRow.cells[2].innerHTML = formData.food1;
-    selectedRow.cells[3].innerHTML = formData.food2;
-    selectedRow.cells[4].innerHTML = formData.food3;
-    selectedRow.cells[5].innerHTML = formData.drinks;
-    // selectedRow.cells[6].innerHTML = formData.protein;
+.select:hover {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
-function onDelete(td) {
-    if (confirm('Are you sure to delete this record ?')) {
-        row = td.parentElement.parentElement;
-        document.getElementById("employeeList").deleteRow(row.rowIndex);
-        resetForm();
-    }
-}
-function validate() {
-    isValid = true;
-    if (document.getElementById("meal").value == "") {
-        isValid = false;
-        document.getElementById("mealValidationError").classList.remove("hide");
-    } else {
-        isValid = true;
-        if (!document.getElementById("mealValidationError").classList.contains("hide"))
-            document.getElementById("mealValidationError").classList.add("hide");
-    }
-    return isValid;
+.caret {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #fff;
+    transition: 0.3s;
 }
 
-//-----------------------------DROPDOWN-----------------------------------
-const dropdowns = document.querySelectorAll('.dropdown');
+.caret-rotate {
+    transform: rotate(180deg);
+}
 
-//loop trough all dropdown elements
-dropdowns.forEach(dropdown => {
-    //Get inner elmeents from each dropdown
-    const select = dropdown.querySelector('.select');
-    const caret = dropdown.querySelector('.caret');
-    const menu = dropdown.querySelector('.menu');
-    const options = dropdown.querySelectorAll('.menu li');
-    const selected = dropdown.querySelector('.selected');
+.menu {
+    list-style: none;
+    padding: 0.2em 0.5em;
+    background: #ffffff;
+    border: 1px #ccc solid;
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+    border-radius: 0.25em;
+    color: #0c0c0c;
+    position: absolute;
+    top: 3em;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+    opacity: 0;
+    display: none;
+    transition: 0.2s;
+    z-index: 1;
+}
 
+.menu li {
+    padding: 0.7em 0.5em;
+    margin: 0.3em 0;
+    border-radius: 0.25em;
+    cursor: pointer;
+}
 
-    //add a circle event to the select element
-    select.addEventListener('click', () =>{
-        //add the clicked select styles to the select element
-        select.classList.toggle('select-clicked');
-        //add the rotate styles to the caret element
-        caret.classList.toggle('caret-rotate');
-        //add the open styles to the menu element
-        menu.classList.toggle('menu-open');
-    });
+.menu li:hover {
+    background: #4f7de7;
+}
 
-    //loop through all option elements
-    options.forEach(option => {
-        //add a click event to the option element
-        option.addEventListener('click', () => {
-            //change selected inner text to clicked option inner text
-            selected.innerText = option.innerText;
-            //add the clicked select styles to the select element
-            select.classList.remove('select-clicked');
-            //add the rotate styles to the caret element
-            caret.classList.remove('caret-rotate');
-            //add the open styles to the menu element
-            menu.classList.remove('menu-open');
-            //remove active class from all option elements
-            options.forEach(option => {
-                option.classList.remove('active');
-            });
-            //add active class to clicked option element
-            option.classList.add('active');
-        });
-    });
-});
+.active {
+    background: #4f7de7;
+}
+
+.menu-open {
+    display: block;
+    opacity: 1;
+}
+
+td.form-1 form div.caret {
+    margin-bottom: 0px;
+}
