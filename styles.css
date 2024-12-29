@@ -4,8 +4,8 @@ body {
     background-image: linear-gradient(to bottom right, rgb(9, 122, 252), rgb(255, 40, 244));
     font-family: 'Poppins', sans-serif;
     width: 100wv;
-    /* height: 97.8vh; */
-    height: 100%;
+    height: 97.8vh;
+    /* height: 100%; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -96,7 +96,7 @@ td.form-1 {
 
 input[type=text], input[type=number], input[type=date] {
     width: 100%;
-    padding: 12px 20px;
+    padding: 1em;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
@@ -208,13 +208,13 @@ div.form-action-buttons input {
 }
 
 .select {
-    background: #2a2f3b;
-    color: #fff;
+    background: #ffffff;
+    color: #0c0c0c;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 2px #2a2f3b solid;
-    border-radius: 0.5em;
+    border: 1px #ccc solid;
+    border-radius: 0.25em;
     padding: 1em;
     cursor: pointer;
     transition: background 0.3s;
@@ -226,7 +226,7 @@ div.form-action-buttons input {
 }
 
 .select:hover {
-    background: #323741;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
 .caret {
@@ -245,11 +245,11 @@ div.form-action-buttons input {
 .menu {
     list-style: none;
     padding: 0.2em 0.5em;
-    background: #323741;
-    border: 1px #363a43 solid;
+    background: #ffffff;
+    border: 1px #ccc solid;
     box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
-    border-radius: 0.5em;
-    color: #9fa5b5;
+    border-radius: 0.25em;
+    color: #0c0c0c;
     position: absolute;
     top: 3em;
     left: 50%;
@@ -264,16 +264,16 @@ div.form-action-buttons input {
 .menu li {
     padding: 0.7em 0.5em;
     margin: 0.3em 0;
-    border-radius: 0.5em;
+    border-radius: 0.25em;
     cursor: pointer;
 }
 
 .menu li:hover {
-    background: #2a2d35;
+    background: #4f7de7;
 }
 
 .active {
-    background: #23242a;
+    background: #4f7de7;
 }
 
 .menu-open {
