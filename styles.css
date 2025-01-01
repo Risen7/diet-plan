@@ -189,6 +189,12 @@ div.form-action-buttons input {
     font-size: 1.2rem;
 }
 
+td span.count {
+    color: white;
+    background: #26489a;
+    padding: 4px 8px;
+}
+
 @media screen and (max-width: 1098px) {
     td.form-1 {
         padding-inline: 20px;
