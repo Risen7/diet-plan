@@ -244,7 +244,7 @@ td span.protein {
 .select-wrapper::after {
     content: "\25BC";
     font-size: 1rem;
-    top: 14px;
+    top: 16px;
     right: 14px;
     position: absolute;
     pointer-events: none;
