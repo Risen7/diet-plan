@@ -1,12 +1,14 @@
 // https://www.youtube.com/watch?v=hBbrGFCszU4 - drop down menu
 document.addEventListener("DOMContentLoaded", loadData);
 var selectedRow = null
+var selectedRows = null
 var food1 = 0;
 var food2 = 0;
 var food3 = 0;
 var drinks = 0;
 var totalProtein = 0;
 let dietTracker = document.getElementById("dietTracker");
+let showValue = true;
 
 
 function onFormSubmit() {
@@ -92,7 +94,6 @@ function readFormData() {
         food2 = 0;
     }
 
-
     //----------------------------------------DESERT-----------------------------------------
 
     if(desert1 == "Egg"){
@@ -147,25 +148,51 @@ function readFormData() {
     return formData;
 }
 
+// function insertNewRecord(data) {
+//     var table = document.getElementById("employeeList").getElementsByTagName('tbody')[0];
+//     var newRow = table.insertRow(table.length);
+//     cell1 = newRow.insertCell(0);
+//     cell1.innerHTML = data.meal;
+//     cell2 = newRow.insertCell(1);
+//     cell2.innerHTML = data.date;
+//     cell3 = newRow.insertCell(2);
+//     cell3.innerHTML = `${food1} <span class="protein">${data.food1}</span>`;
+//     cell4 = newRow.insertCell(3);
+//     cell4.innerHTML = `${food2} <span class="protein">${data.food2}</span>`;
+//     cell5 = newRow.insertCell(4);
+//     cell5.innerHTML = `${food3} <span class="protein">${data.food3}</span>`;
+//     cell6 = newRow.insertCell(5);
+//     cell6.innerHTML = `${drinks} <span class="protein">${data.drinks}</span>`;
+//     cell7 = newRow.insertCell(6);
+//     cell7.innerHTML = `<span class="protein">${data.totalProtein}</span>`;
+//     cell7 = newRow.insertCell(7);
+//     cell7.innerHTML = `<a onClick="onEdit(this)">Edit</a>
+//                        <a onClick="onDelete(this)">Delete</a>`;
+//     console.log(data.food1 + "-" + food1);
+//     console.log(data.food2 + "-" + food2);
+//     console.log(data.food3 + "-" + food3);
+//     console.log(data.drinks + "-" + drinks);
+// }
 
 function insertNewRecord(data) {
     var table = document.getElementById("employeeList").getElementsByTagName('tbody')[0];
     var newRow = table.insertRow(table.length);
+    showValue = true;
     cell1 = newRow.insertCell(0);
     cell1.innerHTML = data.meal;
     cell2 = newRow.insertCell(1);
     cell2.innerHTML = data.date;
     cell3 = newRow.insertCell(2);
-    cell3.innerHTML = `${data.food1} <span class="protein">${food1}</span>`;
+    cell3.innerHTML = data.food1;
     cell4 = newRow.insertCell(3);
-    cell4.innerHTML = `${data.food2} <span class="protein">${food2}</span>`;
+    cell4.innerHTML = data.food2;
     cell5 = newRow.insertCell(4);
-    cell5.innerHTML = `${data.food3} <span class="protein">${food3}</span>`;
+    cell5.innerHTML = data.food3;
     cell6 = newRow.insertCell(5);
-    cell6.innerHTML = `${data.drinks} <span class="protein">${drinks}</span>`;
+    cell6.innerHTML = data.drinks;
     cell7 = newRow.insertCell(6);
     cell7.innerHTML = `<span class="protein">${data.totalProtein}</span>`;
-    cell7 = newRow.insertCell(7);
+    cell7 = newRow.insertCell(7);   
     cell7.innerHTML = `<a onClick="onEdit(this)">Edit</a>
                        <a onClick="onDelete(this)">Delete</a>`;
     console.log(data.food1 + "-" + food1);
@@ -186,6 +213,7 @@ function resetForm() {
 }
 
 function onEdit(td) {
+    // selectedRows = td.parentElement.parentElement;
     selectedRow = td.parentElement.parentElement;
     document.getElementById("meal").value = selectedRow.cells[0].innerHTML;
     document.getElementById("date").value = selectedRow.cells[1].innerHTML;
@@ -193,15 +221,32 @@ function onEdit(td) {
     document.getElementById("side1").value = selectedRow.cells[3].innerHTML;
     document.getElementById("desert1").value = selectedRow.cells[4].innerHTML;
     document.getElementById("drinks1").value = selectedRow.cells[5].innerHTML;
+        console.log(selectedRow.cells[0].innerHTML);
+        console.log(selectedRow.cells[1].innerHTML);
+        console.log(selectedRow.cells[2].innerHTML);
+        console.log(selectedRow.cells[3].innerHTML);    
+        console.log(selectedRow.cells[4].innerHTML);
+        console.log(selectedRow.cells[5].innerHTML);
     // document.getElementById("protein").value = selectedRow.cells[6].innerHTML;
 }
+
+// function updateRecord(formData) {
+//     selectedRows.cells[0].innerHTML = formData.meal;
+//     selectedRows.cells[1].innerHTML = formData.date;
+//     selectedRow.cells[2].innerHTML = `${food1} <span class="protein">${formData.food1}</span>`;
+//     selectedRow.cells[3].innerHTML = `${food2} <span class="protein">${formData.food2}</span>`;
+//     selectedRow.cells[4].innerHTML = `${food3} <span class="protein">${formData.food3}</span>`;
+//     selectedRow.cells[5].innerHTML = `${drinks} <span class="protein">${formData.drinks}</span>`;
+//     selectedRow.cells[6].innerHTML = `<span class="protein">${formData.totalProtein}</span>`;
+// }
+
 function updateRecord(formData) {
     selectedRow.cells[0].innerHTML = formData.meal;
     selectedRow.cells[1].innerHTML = formData.date;
-    selectedRow.cells[2].innerHTML = `${formData.food1} <span class="protein">${food1}</span>`;
-    selectedRow.cells[3].innerHTML = `${formData.food2} <span class="protein">${food2}</span>`;
-    selectedRow.cells[4].innerHTML = `${formData.food3} <span class="protein">${food3}</span>`;
-    selectedRow.cells[5].innerHTML = `${formData.drinks} <span class="protein">${drinks}</span>`;
+    selectedRow.cells[2].innerHTML = formData.food1;
+    selectedRow.cells[3].innerHTML = formData.food2;
+    selectedRow.cells[4].innerHTML = formData.food3;
+    selectedRow.cells[5].innerHTML = formData.drinks
     selectedRow.cells[6].innerHTML = `<span class="protein">${formData.totalProtein}</span>`;
 }
 
