@@ -1,13 +1,13 @@
 // https://www.youtube.com/watch?v=hBbrGFCszU4 - drop down menu
-
+document.addEventListener("DOMContentLoaded", loadData);
 var selectedRow = null
-// var fud1 = document.getElementById("food-1").value;
-// var fud2 = document.getElementById("food-2").value;
 var food1 = 0;
 var food2 = 0;
 var food3 = 0;
 var drinks = 0;
 var totalProtein = 0;
+let dietTracker = document.getElementById("dietTracker");
+
 
 function onFormSubmit() {
     if (validate()) {
@@ -18,47 +18,31 @@ function onFormSubmit() {
             updateRecord(formData);
         resetForm();
     }
-
+    saveData();
 }
 
+function saveData() {
+    localStorage.setItem("dietDat", dietTracker.innerHTML);
+}
 
-//   if (document.getElementById("food-2") == "rice") {
-//     food2 = 21;
-//   } else if(document.getElementById("food-1") == "tofu") {
-//     food2 = 26
-//   }
-
-// if(fud1 = "chicken breast") {
-//     food1 = 25;
-// } else if(fud1 = "pork") {
-//     food2 = 27;
-// }
-
-
-
-// totalz = food1 + food2;
-
+function loadData() {
+    dietTracker.innerHTML = localStorage.getItem("dietDat");
+}
 
 function readFormData() {
     var formData = {};
     formData["meal"] = document.getElementById("meal").value;
     formData["date"] = document.getElementById("date").value;
-    formData["food1"] = document.getElementById("main1").innerHTML;
-    formData["food2"] = document.getElementById("side1").innerHTML;
-    formData["food3"] = document.getElementById("desert1").innerHTML;
-    formData["drinks"] = document.getElementById("drinks1").innerHTML;
+    formData["food1"] = document.getElementById("main1").value;
+    formData["food2"] = document.getElementById("side1").value;
+    formData["food3"] = document.getElementById("desert1").value;
+    formData["drinks"] = document.getElementById("drinks1").value;
 
     //-------------------------------------------------------------------
-    var main1 = document.getElementById("main1").innerHTML;
-    var side1 = document.getElementById("side1").innerHTML;
-    var desert1 = document.getElementById("desert1").innerHTML;
-    var drinks1 = document.getElementById("drinks1").innerHTML;
-    
-    // var fud1 = document.getElementById("food-1").value;
-    // var fud2 = document.getElementById("food-2").value;
-    // var fud3 = document.getElementById("food-3").value;
-    // var bev = document.getElementById("drinks").value;
-
+    var main1 = document.getElementById("main1").value;
+    var side1 = document.getElementById("side1").value;
+    var desert1 = document.getElementById("desert1").value;
+    var drinks1 = document.getElementById("drinks1").value;
 
     //----------------------------------------MAIN DISH-----------------------------------------
 
@@ -80,6 +64,10 @@ function readFormData() {
         food1 = 21;
     } else if(main1 == "Sardines") {
         food1 = 21;
+    } else if(main1 == "Egg Dish") {
+        food1 = 6;
+    } else if(main1 == "Champorado") {
+        food1 = 10;
     } else {
         food1 = 0;
     }
@@ -152,88 +140,12 @@ function readFormData() {
         drinks = 0;
     }
 
-
-    // if(fud1 == "chicken breast"){
-    //     food1 = 28;
-    // } else if(fud1 == "century tuna") {
-    //     food1 = 22;
-    // } else if(fud1 == "beef dish") {
-    //     food1 = 27;
-    // } else if(fud1 == "fried chicken") {
-    //     food1 = 23;
-    // } else if(fud1 == "monggo") {
-    //     food1 = 25;
-    // } else if(fud1 == "pork dish") {
-    //     food1 = 25;
-    // } else if(fud1 == "fish dish") {
-    //     food1 = 28;
-    // } else if(fud1 == "spanish style") {
-    //     food1 = 24;
-    // } else if(fud1 == "sardines") {
-    //     food1 = 24;
-    // } else {
-    //     food1 = 0;
-    // }
-
-    // if(fud2 == "one rice"){
-    //     food2 = 5;
-    // } else if(fud2 == "half rice") {
-    //     food2 = 2.5;
-    // } else if(fud2 == "one & half rice") {
-    //     food2 = 7.5;
-    // } else if(fud2 == "bread") {
-    //     food2 = 3;
-    // } else {
-    //     food2 = 0;
-    // }
-
-    // if(fud3 == "tofu"){
-    //     food3 = 15;
-    // } else if(fud3 == "egg pie") {
-    //     food3 = 6;
-    // } else if(fud3 == "bread") {
-    //     food3 = 3;
-    // } else if(fud3 == "egg") {
-    //     food3 = 6;
-    // } else if(fud3 == "taho") {
-    //     food3 = 15;
-    // } else if(fud3 == "peanuts") {
-    //     food3 = 10;
-    // } else {
-    //     food3 = 0;
-    // }
-
-    // if(bev == "water"){
-    //     drinks = 0;
-    // } else if(bev == "softdrinks") {
-    //     drinks = 0;
-    // } else if(bev == "milk") {
-    //     drinks = 5;
-    // } else if(bev == "vitamilk") {
-    //     drinks = 8;
-    // } else if(bev == "soy secretz") {
-    //     drinks = 7;
-    // } else if(bev == "yakult") {
-    //     drinks = 0.9;
-    // } else if(bev == "juice") {
-    //     drinks = 0.2;
-    // } else if(bev == "protein shake") {
-    //     drinks = 30;
-    // } else {
-    //     drinks = 0;
-    // }
-
     //--------------------------------------------------------------------
-    console.log("main dish-" + food1);
-    console.log("side dish-" + food2);
-    console.log("desert-" + food3);
-    console.log("drinks-" + drinks);
+
     formData.totalProtein = food1 + food2 + food3 + drinks;
     
     return formData;
 }
-
-
 
 
 function insertNewRecord(data) {
@@ -244,19 +156,22 @@ function insertNewRecord(data) {
     cell2 = newRow.insertCell(1);
     cell2.innerHTML = data.date;
     cell3 = newRow.insertCell(2);
-    cell3.innerHTML = data.food1;
+    cell3.innerHTML = `${data.food1} <span class="protein">${food1}</span>`;
     cell4 = newRow.insertCell(3);
-    cell4.innerHTML = data.food2;
+    cell4.innerHTML = `${data.food2} <span class="protein">${food2}</span>`;
     cell5 = newRow.insertCell(4);
-    cell5.innerHTML = data.food3;
+    cell5.innerHTML = `${data.food3} <span class="protein">${food3}</span>`;
     cell6 = newRow.insertCell(5);
-    cell6.innerHTML = data.drinks;
+    cell6.innerHTML = `${data.drinks} <span class="protein">${drinks}</span>`;
     cell7 = newRow.insertCell(6);
-    cell7.innerHTML = data.totalProtein;
+    cell7.innerHTML = `<span class="protein">${data.totalProtein}</span>`;
     cell7 = newRow.insertCell(7);
     cell7.innerHTML = `<a onClick="onEdit(this)">Edit</a>
                        <a onClick="onDelete(this)">Delete</a>`;
-
+    console.log(data.food1 + "-" + food1);
+    console.log(data.food2 + "-" + food2);
+    console.log(data.food3 + "-" + food3);
+    console.log(data.drinks + "-" + drinks);
 }
 
 function resetForm() {
@@ -283,11 +198,11 @@ function onEdit(td) {
 function updateRecord(formData) {
     selectedRow.cells[0].innerHTML = formData.meal;
     selectedRow.cells[1].innerHTML = formData.date;
-    selectedRow.cells[2].innerHTML = formData.food1;
-    selectedRow.cells[3].innerHTML = formData.food2;
-    selectedRow.cells[4].innerHTML = formData.food3;
-    selectedRow.cells[5].innerHTML = formData.drinks;
-    selectedRow.cells[6].innerHTML = formData.totalProtein;
+    selectedRow.cells[2].innerHTML = `${formData.food1} <span class="protein">${food1}</span>`;
+    selectedRow.cells[3].innerHTML = `${formData.food2} <span class="protein">${food2}</span>`;
+    selectedRow.cells[4].innerHTML = `${formData.food3} <span class="protein">${food3}</span>`;
+    selectedRow.cells[5].innerHTML = `${formData.drinks} <span class="protein">${drinks}</span>`;
+    selectedRow.cells[6].innerHTML = `<span class="protein">${formData.totalProtein}</span>`;
 }
 
 function onDelete(td) {
@@ -295,6 +210,7 @@ function onDelete(td) {
         row = td.parentElement.parentElement;
         document.getElementById("employeeList").deleteRow(row.rowIndex);
         resetForm();
+        saveData();
     }
 }
 function validate() {
@@ -309,48 +225,3 @@ function validate() {
     }
     return isValid;
 }
-
-//-----------------------------DROPDOWN-----------------------------------
-const dropdowns = document.querySelectorAll('.dropdown');
-
-//loop trough all dropdown elements
-dropdowns.forEach(dropdown => {
-    //Get inner elmeents from each dropdown
-    const select = dropdown.querySelector('.select');
-    const caret = dropdown.querySelector('.caret');
-    const menu = dropdown.querySelector('.menu');
-    const options = dropdown.querySelectorAll('.menu li');
-    const selected = dropdown.querySelector('.selected');
-
-
-    //add a circle event to the select element
-    select.addEventListener('click', () =>{
-        //add the clicked select styles to the select element
-        select.classList.toggle('select-clicked');
-        //add the rotate styles to the caret element
-        caret.classList.toggle('caret-rotate');
-        //add the open styles to the menu element
-        menu.classList.toggle('menu-open');
-    });
-
-    //loop through all option elements
-    options.forEach(option => {
-        //add a click event to the option element
-        option.addEventListener('click', () => {
-            //change selected inner text to clicked option inner text
-            selected.innerText = option.innerText;
-            //add the clicked select styles to the select element
-            select.classList.remove('select-clicked');
-            //add the rotate styles to the caret element
-            caret.classList.remove('caret-rotate');
-            //add the open styles to the menu element
-            menu.classList.remove('menu-open');
-            //remove active class from all option elements
-            options.forEach(option => {
-                option.classList.remove('active');
-            });
-            //add active class to clicked option element
-            option.classList.add('active');
-        });
-    });
-});
