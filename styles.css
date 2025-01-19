@@ -195,6 +195,13 @@ td span.count {
     padding: 4px 8px;
 }
 
+td span.protein {
+    background: #4f7de7;
+    padding: 4px 8px;
+    color: #fff;
+    font-weight: 600;
+}
+
 @media screen and (max-width: 1098px) {
     td.form-1 {
         padding-inline: 20px;
@@ -215,6 +222,7 @@ td span.count {
 
 .select {
     background: #ffffff;
+    font-size: 1rem;
     color: #0c0c0c;
     display: flex;
     justify-content: space-between;
@@ -224,7 +232,23 @@ td span.count {
     padding: 1em;
     cursor: pointer;
     transition: background 0.3s;
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
 }
+
+.select-wrapper {
+    position: relative;   
+}
+
+.select-wrapper::after {
+    content: "\25BC";
+    font-size: 1rem;
+    top: 14px;
+    right: 14px;
+    position: absolute;
+    pointer-events: none;
+  }
 
 .selected-clicked {
     border: 2px #26489a solid;
