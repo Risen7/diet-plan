@@ -28,6 +28,12 @@ tbody tr {
     /* border: 3px solid gray; */
 }
 
+/* #dietTracker.dietTracker td {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
 table{
     border-collapse: collapse;
 }
@@ -51,7 +57,6 @@ td h1:hover {
 }
 
 td, th {
-    position: relative;
     border: 1px solid #dddddd;
     text-align: center;
     padding: 8px;  
@@ -197,17 +202,14 @@ td span.count {
 }
 
 td span#protein, td span#calories {
-    background: #4f7de7;
+    /* background: #4f7de7; */
     padding: 4px 8px;
-    color: #fff;
+    /* color: #fff; */
     font-weight: 600;
-    position: absolute;
-    top: 5px;
-    left: 60px;
 }
 
 td span#protein {
-    display: inherit;
+    display: block;
 }
 
 td span#calories {
