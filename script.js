@@ -14,7 +14,6 @@ var drinksCal = 0;
 var totalProtein = 0;
 var totalCalories = 0;
 let dietTracker = document.getElementById("dietTracker");
-let showValue = true;
 
 function onFormSubmit() {
     if (validate()) {
@@ -221,7 +220,6 @@ function readFormData() {
 function insertNewRecord(data) {
     var table = document.getElementById("employeeList").getElementsByTagName('tbody')[0];
     var newRow = table.insertRow(table.length);
-    showValue = true;
     cell1 = newRow.insertCell(0);
     cell1.innerHTML = data.meal;
     cell2 = newRow.insertCell(1);
@@ -327,11 +325,11 @@ function totalChange() {
     let calories = document.getElementById("calories");
     if(totals.value == "Total Protein") {
         console.log("pasok protein")
-        proteins.style.display = "inherit"
+        proteins.style.display = "block"
         calories.style.display = "none";
     } else if(totals.value == "Total Calories") {
         console.log("pasok calories");
         proteins.style.display = "none"
-        calories.style.display = "inherit"
+        calories.style.display = "block"
     }
 }
