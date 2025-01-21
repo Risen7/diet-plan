@@ -68,6 +68,7 @@ td.form-1 {
 }
 
 td.form-2 {
+    display: flex;
     border:none;
     padding: 0;
     margin-right: 0;
@@ -153,9 +154,9 @@ label.validation-error{
     margin-left: 5px;
 }
 
-td:nth-child(2) {
+/* td:nth-child(2) {
     display: flex;
-}
+} */
 
 .hide{
     display:none;
@@ -201,18 +202,18 @@ td span.count {
     padding: 4px 8px;
 }
 
-td span#protein, td span#calories {
+td span.protein, td span.calories {
     /* background: #4f7de7; */
     padding: 4px 8px;
     /* color: #fff; */
     font-weight: 600;
 }
 
-td span#protein {
+td span.protein {
     display: block;
 }
 
-td span#calories {
+td span.calories {
     display: none;
 }
 
