@@ -233,8 +233,8 @@ function insertNewRecord(data) {
     cell6 = newRow.insertCell(5);
     cell6.innerHTML = data.drinks;
     cell7 = newRow.insertCell(6);
-    cell7.innerHTML = `<span id="protein">${data.totalProtein}</span>
-    <span id="calories">${data.totalCalories}</span>`;
+    cell7.innerHTML = `<span class="protein">${data.totalProtein}</span>
+    <span class="calories">${data.totalCalories}</span>`;
     cell7 = newRow.insertCell(7);   
     cell7.innerHTML = `<a onClick="onEdit(this)">Edit</a>
                        <a onClick="onDelete(this)">Delete</a>`;
@@ -321,15 +321,22 @@ function validate() {
 
 function totalChange() {
     let totals = document.getElementById("totals");
-    let proteins = document.getElementById("protein");
-    let calories = document.getElementById("calories");
     if(totals.value == "Total Protein") {
         console.log("pasok protein")
-        proteins.style.display = "block"
-        calories.style.display = "none";
+        var protein = document.getElementsByClassName("protein");
+        var calories = document.getElementsByClassName("calories");
+        for (var i=0;i<protein.length;i+=1){
+            protein[i].style.display = "block";
+            calories[i].style.display = "none";
+        }
     } else if(totals.value == "Total Calories") {
         console.log("pasok calories");
-        proteins.style.display = "none"
-        calories.style.display = "block"
+        var protein = document.getElementsByClassName("protein");
+        var calories = document.getElementsByClassName("calories");
+        for (var i=0;i<protein.length;i+=1){
+            protein[i].style.display = "none";
+            calories[i].style.display = "block";
+        }
+        console.log(protein.length);
     }
 }
