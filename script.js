@@ -1,15 +1,20 @@
 // https://www.youtube.com/watch?v=hBbrGFCszU4 - drop down menu
 document.addEventListener("DOMContentLoaded", loadData);
+document.getElementById("totals").addEventListener("change", totalChange);
 var selectedRow = null
 var selectedRows = null
-var food1 = 0;
-var food2 = 0;
-var food3 = 0;
-var drinks = 0;
+var food1Prot = 0;
+var food1Cal = 0;
+var food2Prot = 0;
+var food2Cal = 0;
+var food3Prot = 0;
+var food3Cal = 0;
+var drinksProt = 0;
+var drinksCal = 0;
 var totalProtein = 0;
+var totalCalories = 0;
 let dietTracker = document.getElementById("dietTracker");
 let showValue = true;
-
 
 function onFormSubmit() {
     if (validate()) {
@@ -49,101 +54,140 @@ function readFormData() {
     //----------------------------------------MAIN DISH-----------------------------------------
 
     if(main1 == "Chicken Dish"){
-        food1 = 28;
+        food1Prot = 28;
+        food1Cal = 165;
     } else if(main1 == "Century Tuna") {
-        food1 = 21;
+        food1Prot = 21;
+        food1Cal = 300;
     } else if(main1 == "Beef Dish") {
-        food1 = 27;
+        food1Prot = 27;
+        food1Cal = 250;
     } else if(main1 == "Fried Chicken") {
-        food1 = 23;
+        food1Prot = 23;
+        food1Cal = 246;
     } else if(main1 == "Monggo") {
-        food1 = 24;
+        food1Prot = 24;
+        food1Cal = 347;
     } else if(main1 == "Pork Dish") {
-        food1 = 25;
+        food1Prot = 25;
+        food1Cal = 242;
     } else if(main1 == "Fish Dish") {
-        food1 = 28;
+        food1Prot = 28;
+        food1Cal = 132;
     } else if(main1 == "Spanish Style") {
-        food1 = 21;
+        food1Prot = 21;
+        food1Cal = 350;
     } else if(main1 == "Sardines") {
-        food1 = 21;
+        food1Prot = 21;
+        food1Cal = 125;
     } else if(main1 == "Egg Dish") {
-        food1 = 6;
+        food1Prot = 6;
+        food1Cal = 78;
     } else if(main1 == "Champorado") {
-        food1 = 10;
+        food1Prot = 10;
+        food1Cal = 113;
     } else {
-        food1 = 0;
+        food1Prot = 0;
     }
 
     //----------------------------------------SIDE DISH-----------------------------------------
 
     if(side1 == "1 Rice"){
-        food2 = 5;
+        food2Prot = 5;
+        food2Cal = 206;
     } else if(side1 == "1 and 1/2 Rice") {
-        food2 = 7.5;
+        food2Prot = 7.5;
+        food2Cal = 309;
     } else if(side1 == "1/2 Rice") {
-        food2 = 2.5;
+        food2Prot = 2.5;
+        food2Cal = 103;
     } else if(side1 == "Tofu") {
-        food2 = 15;
+        food2Prot = 15;
+        food2Cal = 76;
     } else if(side1 == "Egg") {
-        food2 = 6;
+        food2Prot = 6;
+        food2Cal = 70;
     } else if(side1 == "Bread") {
-        food2 = 9;
+        food2Prot = 9;
+        food2Cal = 265;
     } else if(side1 == "Oat Meal") {
-        food2 = 11.1;
+        food2Prot = 11.1;
+        food2Cal = 68;
     } else {
-        food2 = 0;
+        food2Prot = 0;
+        food2Cal = 0;
     }
 
     //----------------------------------------DESERT-----------------------------------------
 
     if(desert1 == "Egg"){
-        food3 = 6;
+        food3Prot = 6;
+        food3Cal = 70;
     } else if(desert1 == "Egg Pie") {
-        food3 = 5.8;
+        food3Prot = 5.8;
+        food3Cal = 220;
     } else if(desert1 == "Biscuit") {
-        food3 = 7;
+        food3Prot = 7;
+        food3Cal = 353;
     } else if(desert1 == "Tofu") {
-        food3 = 15;
+        food3Prot = 15;
+        food3Cal = 76;
     } else if(desert1 == "Taho") {
-        food3 = 15;
+        food3Prot = 15;
+        food3Cal = 150;
     } else if(desert1 == "Bread") {
-        food3 = 9;
+        food3Prot = 9;
+        food3Cal = 265;
     } else if(desert1 == "Chocolate") {
-        food3 = 4.9;
+        food3Prot = 4.9;
+        food3Cal = 535;
     } else if(desert1 == "Hopia 2pcs") {
-        food3 = 6;
+        food3Prot = 6;
+        food3Cal = 270;
     } else if(desert1 == "Ice Cream") {
-        food3 = 3.5;
+        food3Prot = 3.5;
+        food3Cal = 207;
     } else {
-        food3 = 0;
+        food3Prot = 0;
+        food3Cal = 0;
     }
 
 
     //----------------------------------------DRINKS-----------------------------------------
 
     if(drinks1 == "Milk"){
-        drinks = 5;
+        drinksProt = 5;
+        drinksCal = 100;
     } else if(drinks1 == "Water") {
-        drinks = 0;
+        drinksProt = 0;
+        drinksCal = 0;
     } else if(drinks1 == "Vitamilk") {
-        drinks = 8;
+        drinksProt = 8;
+        drinksCal = 270;
     } else if(drinks1 == "Yakult") {
-        drinks = 1;
+        drinksProt = 1;
+        drinksCal = 60;
     } else if(drinks1 == "Softdrinks") {
-        drinks = 0;
+        drinksProt = 0;
+        drinksCal = 139;
     } else if(drinks1 == "Soy Secretz") {
-        drinks = 7;
+        drinksProt = 7;
+        drinksCal = 182;
     } else if(drinks1 == "Gatorade") {
-        drinks = 0;
+        drinksProt = 0;
+        drinksCal = 140;
     } else if(drinks1 == "Whey Protein") {
-        drinks = 35;
+        drinksProt = 35;
+        drinksCal = 120;
     } else {
-        drinks = 0;
+        drinksProt = 0;
+        drinksCal = 0;
     }
 
     //--------------------------------------------------------------------
 
-    formData.totalProtein = food1 + food2 + food3 + drinks;
+    formData.totalProtein = food1Prot + food2Prot + food3Prot + drinksProt;
+    formData.totalCalories = food1Cal + food2Cal + food3Cal + drinksCal;
     
     return formData;
 }
@@ -191,14 +235,19 @@ function insertNewRecord(data) {
     cell6 = newRow.insertCell(5);
     cell6.innerHTML = data.drinks;
     cell7 = newRow.insertCell(6);
-    cell7.innerHTML = `<span class="protein">${data.totalProtein}</span>`;
+    cell7.innerHTML = `<span id="protein">${data.totalProtein}</span>
+    <span id="calories">${data.totalCalories}</span>`;
     cell7 = newRow.insertCell(7);   
     cell7.innerHTML = `<a onClick="onEdit(this)">Edit</a>
                        <a onClick="onDelete(this)">Delete</a>`;
-    console.log(data.food1 + "-" + food1);
-    console.log(data.food2 + "-" + food2);
-    console.log(data.food3 + "-" + food3);
-    console.log(data.drinks + "-" + drinks);
+    console.log(data.food1 + "--protein" + "-->" + food1Prot);
+    console.log(data.food1 + "--calories" + "-->" + food1Cal);
+    console.log(data.food2 + "--protein" + "-->" + food2Prot);
+    console.log(data.food2 + "--protein" + "-->" + food2Cal);
+    console.log(data.food3 + "--protein" + "-->" + food3Prot);
+    console.log(data.food3 + "--calories" + "-->" + food3Cal);
+    console.log(data.drinks + "--protein" + "-->" + drinksProt);
+    console.log(data.drinks + "--calories" + "-->" + drinksCal);
 }
 
 function resetForm() {
@@ -247,7 +296,8 @@ function updateRecord(formData) {
     selectedRow.cells[3].innerHTML = formData.food2;
     selectedRow.cells[4].innerHTML = formData.food3;
     selectedRow.cells[5].innerHTML = formData.drinks
-    selectedRow.cells[6].innerHTML = `<span class="protein">${formData.totalProtein}</span>`;
+    selectedRow.cells[6].innerHTML = `<span class="protein">${formData.totalProtein}</span>
+    <span class="calories">${formData.totalCalories}</span>`;
 }
 
 function onDelete(td) {
@@ -269,4 +319,19 @@ function validate() {
             document.getElementById("mealValidationError").classList.add("hide");
     }
     return isValid;
+}
+
+function totalChange() {
+    let totals = document.getElementById("totals");
+    let proteins = document.getElementById("protein");
+    let calories = document.getElementById("calories");
+    if(totals.value == "Total Protein") {
+        console.log("pasok protein")
+        proteins.style.display = "inherit"
+        calories.style.display = "none";
+    } else if(totals.value == "Total Calories") {
+        console.log("pasok calories");
+        proteins.style.display = "none"
+        calories.style.display = "inherit"
+    }
 }
