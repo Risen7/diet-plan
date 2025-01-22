@@ -20,11 +20,13 @@ function onFormSubmit() {
         var formData = readFormData();
         if (selectedRow == null) {
             insertNewRecord(formData);
-            totalChange();
+            
         }else{
             updateRecord(formData);
+            
         resetForm();
         }
+        totalChange();
     };
 
     saveData();
