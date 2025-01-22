@@ -10,7 +10,7 @@ var food2Cal = 0;
 var food3Prot = 0;
 var food3Cal = 0;
 var drinksProt = 0;
-var drinksCal = 0;
+var drinksCal = 0;  
 var totalProtein = 0;
 var totalCalories = 0;
 let dietTracker = document.getElementById("dietTracker");
@@ -18,12 +18,15 @@ let dietTracker = document.getElementById("dietTracker");
 function onFormSubmit() {
     if (validate()) {
         var formData = readFormData();
-        if (selectedRow == null)
+        if (selectedRow == null) {
             insertNewRecord(formData);
-        else
+            totalChange();
+        }else{
             updateRecord(formData);
         resetForm();
-    }
+        }
+    };
+
     saveData();
 }
 
@@ -33,6 +36,7 @@ function saveData() {
 
 function loadData() {
     dietTracker.innerHTML = localStorage.getItem("dietDat");
+    totalChange();
 }
 
 function readFormData() {
