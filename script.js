@@ -24,8 +24,9 @@ function onFormSubmit() {
         }else{
             updateRecord(formData);
             
-        resetForm();
+        
         }
+        resetForm();
         totalChange();
     };
 
@@ -56,71 +57,116 @@ function readFormData() {
     var desert1 = document.getElementById("desert1").value;
     var drinks1 = document.getElementById("drinks1").value;
 
-    //----------------------------------------MAIN DISH-----------------------------------------
+    //----------------------------------------SWITCH MAIN DISH-----------------------------------------
 
-    if(main1 == "Chicken Dish"){
-        food1Prot = 28;
-        food1Cal = 165;
-    } else if(main1 == "Century Tuna") {
-        food1Prot = 21;
-        food1Cal = 300;
-    } else if(main1 == "Beef Dish") {
-        food1Prot = 27;
-        food1Cal = 250;
-    } else if(main1 == "Fried Chicken") {
-        food1Prot = 23;
-        food1Cal = 246;
-    } else if(main1 == "Monggo") {
-        food1Prot = 24;
-        food1Cal = 347;
-    } else if(main1 == "Pork Dish") {
-        food1Prot = 25;
-        food1Cal = 242;
-    } else if(main1 == "Fish Dish") {
-        food1Prot = 28;
-        food1Cal = 132;
-    } else if(main1 == "Spanish Style") {
-        food1Prot = 21;
-        food1Cal = 350;
-    } else if(main1 == "Sardines") {
-        food1Prot = 21;
-        food1Cal = 125;
-    } else if(main1 == "Egg Dish") {
-        food1Prot = 6;
-        food1Cal = 78;
-    } else if(main1 == "Champorado") {
-        food1Prot = 10;
-        food1Cal = 113;
-    } else {
-        food1Prot = 0;
+    switch (main1) {
+        case "Chicken Dish":
+            food1Prot = 28;
+            food1Cal = 165;
+            break;
+        case "Century Tuna":
+            food1Prot = 21;
+            food1Cal = 300;
+            break;
+        case "Beef Dish":
+            food1Prot = 27;
+            food1Cal = 250;
+            break;
+        case "Fried Chicken":
+            food1Prot = 23;
+            food1Cal = 246;
+            break;
+        case "Monggo":
+            food1Prot = 24;
+            food1Cal = 347;
+            break;
+        case "Pork Dish":
+            food1Prot = 25;
+            food1Cal = 242;
+            break;
+        case "Fish Dish":
+            food1Prot = 28;
+            food1Cal = 132;
+            break;
+        case "Spanish Style":
+            food1Prot = 21;
+            food1Cal = 350;
+            break;
+        case "Sardines":
+            food1Prot = 21;
+            food1Cal = 125;
+            break;
+        case "Egg Dish":
+            food1Prot = 6;
+            food1Cal = 78;
+            break;
+        case "Champorado":
+            food1Prot = 10;
+            food1Cal = 113;
+            break;
+        case  "None":
+            food1Prot = 0;
+            food1Cal = 0;
     }
 
     //----------------------------------------SIDE DISH-----------------------------------------
 
-    if(side1 == "1 Rice"){
-        food2Prot = 5;
-        food2Cal = 206;
-    } else if(side1 == "1 and 1/2 Rice") {
-        food2Prot = 7.5;
-        food2Cal = 309;
-    } else if(side1 == "1/2 Rice") {
-        food2Prot = 2.5;
-        food2Cal = 103;
-    } else if(side1 == "Tofu") {
-        food2Prot = 15;
-        food2Cal = 76;
-    } else if(side1 == "Egg") {
-        food2Prot = 6;
-        food2Cal = 70;
-    } else if(side1 == "Bread") {
-        food2Prot = 9;
-        food2Cal = 265;
-    } else if(side1 == "Oat Meal") {
-        food2Prot = 11.1;
-        food2Cal = 68;
-    } else {
-        food2Prot = 0;
-        food2Cal = 0;
+    // if(side1 == "1 Rice"){
+    //     food2Prot = 5;
+    //     food2Cal = 206;
+    // } else if(side1 == "1 and 1/2 Rice") {
+    //     food2Prot = 7.5;
+    //     food2Cal = 309;
+    // } else if(side1 == "1/2 Rice") {
+    //     food2Prot = 2.5;
+    //     food2Cal = 103;
+    // } else if(side1 == "Tofu") {
+    //     food2Prot = 15;
+    //     food2Cal = 76;
+    // } else if(side1 == "Egg") {
+    //     food2Prot = 6;
+    //     food2Cal = 70;
+    // } else if(side1 == "Bread") {
+    //     food2Prot = 9;
+    //     food2Cal = 265;
+    // } else if(side1 == "Oat Meal") {
+    //     food2Prot = 11.1;
+    //     food2Cal = 68;
+    // } else {
+    //     food2Prot = 0;
+    //     food2Cal = 0;
+    // }
+
+     //----------------------------------------SWITCH SIDE DISH-----------------------------------------
+
+    switch (side1) {
+        case "1 Rice":
+            food2Prot = 5;
+            food2Cal = 206;
+            break;
+        case "1 and 1/2 Rice":
+            food2Prot = 7.5;
+            food2Cal = 309;
+            break;
+        case "Tofu":
+            food2Prot = 15;
+            food2Cal = 76;
+            break;
+        case "Egg":
+            food2Prot = 6;
+            food2Cal = 70;
+            break;
+        case "Bread":
+            food2Prot = 9;
+            food2Cal = 265;
+            break;
+        case "Oat Meal":
+            food2Prot = 11.1;
+            food2Cal = 68;
+            break;
+        case  "None":
+            food2Prot = 0;
+            food2Cal = 0;
     }
 
     //----------------------------------------DESERT-----------------------------------------
