@@ -44,16 +44,15 @@ table.list{
 td h1 {
     padding-block: 10px;
     text-wrap: nowrap;
-    background: rgb(236, 236, 236);
+    /* background: rgb(236, 236, 236); */
     font-weight: 600;
     letter-spacing: -1px;
-    color: rgb(36, 147, 238);
+    color: rgb(255, 255, 255);
     transition: all 0.4s;
 }
 
 td h1:hover {
-    background: linear-gradient(45deg, royalblue, pink);
-    color: #000;
+    color:rgb(36, 147, 238);
 }
 
 td, th {
@@ -76,11 +75,12 @@ td.form-2 {
 
 td.form-1 form div {
     text-align: left;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    margin-top: 4px;
 }
 
 form div label {
-    color: rgb(61, 61, 61);
+    color: rgb(255, 255, 255);
 }
 
 tr:nth-child(even),table.list thead>tr {
@@ -97,14 +97,15 @@ tr:nth-child(even),table.list thead>tr {
 } */
 
 td.form-1 {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(46, 46, 46);
     letter-spacing: 1px;
+    width: 30%;
 }
 
 input[type=text], input[type=number], input[type=date] {
     width: 100%;
-    padding: 1em;
-    margin: 8px 0;
+    padding: 0.8em;
+    margin: 4px 0;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -191,9 +192,11 @@ thead tr th:hover {
 }
 
 div.form-action-buttons input {
-    background: rgb(0, 0, 0);
+    background: #4f7de7;
     color: white;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    width: 100%;
+    text-transform: uppercase;
 }
 
 td span.count {
@@ -244,9 +247,9 @@ td span.calories {
     align-items: center;
     border: 1px #ccc solid;
     border-radius: 0.25em;
-    padding: 1em;
+    padding: 0.8em;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: all 0.3s;
     width: 100%;
     -webkit-appearance: none;
     appearance: none;
@@ -270,9 +273,9 @@ td span.calories {
     box-shadow: 0 0 0.8em #26489a;
 }
 
-.select:hover {
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-}
+.select:hover,form div input[type=text]:hover,form div input[type=number]:hover,form div input[type=date]:hover{
+    box-shadow: 0 2px 4px 0 rgba(38, 139, 255, 0.4), 0 7px 15px 0 rgba(38, 139, 255, 0.4);
+};
 
 .caret {
     width: 0;
@@ -340,3 +343,16 @@ select#totals {
     text-align: center;
     background: #000;
 }
+
+/* div#addFoods {
+    display: flex;
+    align-items: center;
+}
+
+div#addFoods span {
+    content: '';    
+    display: flex;
+    background: white;
+    width: 65%;
+    height: 4px;
+} */
