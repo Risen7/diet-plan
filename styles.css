@@ -56,6 +56,7 @@ td h1:hover {
 }
 
 td, th {
+    position: relative;
     border: 1px solid #dddddd;
     text-align: center;
     padding: 8px;  
@@ -343,6 +344,47 @@ select#totals {
     text-align: center;
     background: #000;
 }
+
+span.tool {
+    position: absolute;
+    background: #26489a;
+    color: white;
+    padding: 5px;
+    width: 110px;
+    border-radius: 5px;
+    top: -40px;
+    left: -15px;
+    white-space: normal;
+    visibility: hidden;
+}
+
+span.tipOne {
+    left: -5px;
+}
+
+td:hover:nth-child(3) span.tipOne {
+    visibility: visible;
+    left: -5px;
+}
+td:hover:nth-child(4) span.tipTwo {
+    visibility: visible;
+} 
+td:hover:nth-child(5) span.tipThree {
+    visibility: visible;
+}
+td:hover:nth-child(6) span.tipFour {
+    visibility: visible;
+}
+
+/* span.tipOne {
+    left: -20px;
+}
+span.tipTwo {
+    left: 10px;
+}
+span.tipTwo {
+    left: 0;
+} */
 
 /* div#addFoods {
     display: flex;
