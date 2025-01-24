@@ -109,34 +109,6 @@ function readFormData() {
             food1Cal = 0;
     }
 
-    //----------------------------------------SIDE DISH-----------------------------------------
-
-    // if(side1 == "1 Rice"){
-    //     food2Prot = 5;
-    //     food2Cal = 206;
-    // } else if(side1 == "1 and 1/2 Rice") {
-    //     food2Prot = 7.5;
-    //     food2Cal = 309;
-    // } else if(side1 == "1/2 Rice") {
-    //     food2Prot = 2.5;
-    //     food2Cal = 103;
-    // } else if(side1 == "Tofu") {
-    //     food2Prot = 15;
-    //     food2Cal = 76;
-    // } else if(side1 == "Egg") {
-    //     food2Prot = 6;
-    //     food2Cal = 70;
-    // } else if(side1 == "Bread") {
-    //     food2Prot = 9;
-    //     food2Cal = 265;
-    // } else if(side1 == "Oat Meal") {
-    //     food2Prot = 11.1;
-    //     food2Cal = 68;
-    // } else {
-    //     food2Prot = 0;
-    //     food2Cal = 0;
-    // }
-
      //----------------------------------------SWITCH SIDE DISH-----------------------------------------
 
     switch (side1) {
@@ -147,6 +119,10 @@ function readFormData() {
         case "1 and 1/2 Rice":
             food2Prot = 7.5;
             food2Cal = 309;
+            break;
+        case "1/2 Rice":
+            food2Prot = 2.5;
+            food2Cal = 103;
             break;
         case "Tofu":
             food2Prot = 15;
@@ -169,70 +145,88 @@ function readFormData() {
             food2Cal = 0;
     }
 
-    //----------------------------------------DESERT-----------------------------------------
+    //-----------------------------------------------SWITCH DESERT-----------------------------------------
 
-    if(desert1 == "Egg"){
-        food3Prot = 6;
-        food3Cal = 70;
-    } else if(desert1 == "Egg Pie") {
-        food3Prot = 5.8;
-        food3Cal = 220;
-    } else if(desert1 == "Biscuit") {
-        food3Prot = 7;
-        food3Cal = 353;
-    } else if(desert1 == "Tofu") {
-        food3Prot = 15;
-        food3Cal = 76;
-    } else if(desert1 == "Taho") {
-        food3Prot = 15;
-        food3Cal = 150;
-    } else if(desert1 == "Bread") {
-        food3Prot = 9;
-        food3Cal = 265;
-    } else if(desert1 == "Chocolate") {
-        food3Prot = 4.9;
-        food3Cal = 535;
-    } else if(desert1 == "Hopia 2pcs") {
-        food3Prot = 6;
-        food3Cal = 270;
-    } else if(desert1 == "Ice Cream") {
-        food3Prot = 3.5;
-        food3Cal = 207;
-    } else {
-        food3Prot = 0;
-        food3Cal = 0;
+    switch (desert1) {
+        case "Egg":
+            food3Prot = 6;
+            food3Cal = 70;
+            break;
+        case "Egg Pie":
+            food3Prot = 5.8;
+            food3Cal = 220;
+            break;
+        case "Biscuit":
+            food3Prot = 7;
+            food3Cal = 353;
+            break;
+        case "Tofu":
+            food3Prot = 15;
+            food3Cal = 76;
+            break;
+        case "Taho":
+            food3Prot = 15;
+            food3Cal = 150;
+            break;
+        case "Bread":
+            food3Prot = 9;
+            food3Cal = 265;
+            break;
+        case "Chocolate":
+            food3Prot = 4.9;
+            food3Cal = 535;
+            break;
+        case "Hopia 2pcs":
+            food3Prot = 6;
+            food3Cal = 270;
+            break;
+        case "Ice Cream":
+            food3Prot = 3.5;
+            food3Cal = 207;
+            break;
+        case  "None":
+            food3Prot = 0;
+            food3Cal = 0;
     }
 
+    //----------------------------------------SWITCH DRINKS--------------------------------------------
 
-    //----------------------------------------DRINKS-----------------------------------------
-
-    if(drinks1 == "Milk"){
-        drinksProt = 5;
-        drinksCal = 100;
-    } else if(drinks1 == "Water") {
-        drinksProt = 0;
-        drinksCal = 0;
-    } else if(drinks1 == "Vitamilk") {
-        drinksProt = 8;
-        drinksCal = 270;
-    } else if(drinks1 == "Yakult") {
-        drinksProt = 1;
-        drinksCal = 60;
-    } else if(drinks1 == "Softdrinks") {
-        drinksProt = 0;
-        drinksCal = 139;
-    } else if(drinks1 == "Soy Secretz") {
-        drinksProt = 7;
-        drinksCal = 182;
-    } else if(drinks1 == "Gatorade") {
-        drinksProt = 0;
-        drinksCal = 140;
-    } else if(drinks1 == "Whey Protein") {
-        drinksProt = 35;
-        drinksCal = 120;
-    } else {
-        drinksProt = 0;
-        drinksCal = 0;
+    switch (drinks1) {
+        case "Milk":
+            drinksProt = 5;
+            drinksCal = 100;
+            break;
+        case "Water":
+            drinksProt = 0;
+            drinksCal = 0;
+            break;
+        case "Vitamilk":
+            drinksProt = 8;
+            drinksCal = 270;
+            break;
+        case "Yakult":
+            drinksProt = 1;
+            drinksCal = 60;
+            break;
+        case "Softdrinks":
+            drinksProt = 0;
+            drinksCal = 139;
+            break;
+        case "Soy Secretz":
+            drinksProt = 7;
+            drinksCal = 182;
+            break;
+        case "Gatorade":
+            drinksProt = 0;
+            drinksCal = 140;
+            break;
+        case "Whey Protein":
+            drinksProt = 35;
+            drinksCal = 120;
+            break;
+        case  "None":
+            drinksProt = 0;
+            drinksCal = 0;
     }
 
     //--------------------------------------------------------------------
@@ -243,32 +237,6 @@ function readFormData() {
     return formData;
 }
 
-// function insertNewRecord(data) {
-//     var table = document.getElementById("employeeList").getElementsByTagName('tbody')[0];
-//     var newRow = table.insertRow(table.length);
-//     cell1 = newRow.insertCell(0);
-//     cell1.innerHTML = data.meal;
-//     cell2 = newRow.insertCell(1);
-//     cell2.innerHTML = data.date;
-//     cell3 = newRow.insertCell(2);
-//     cell3.innerHTML = `${food1} <span class="protein">${data.food1}</span>`;
-//     cell4 = newRow.insertCell(3);
-//     cell4.innerHTML = `${food2} <span class="protein">${data.food2}</span>`;
-//     cell5 = newRow.insertCell(4);
-//     cell5.innerHTML = `${food3} <span class="protein">${data.food3}</span>`;
-//     cell6 = newRow.insertCell(5);
-//     cell6.innerHTML = `${drinks} <span class="protein">${data.drinks}</span>`;
-//     cell7 = newRow.insertCell(6);
-//     cell7.innerHTML = `<span class="protein">${data.totalProtein}</span>`;
-//     cell7 = newRow.insertCell(7);
-//     cell7.innerHTML = `<a onClick="onEdit(this)">Edit</a>
-//                        <a onClick="onDelete(this)">Delete</a>`;
-//     console.log(data.food1 + "-" + food1);
-//     console.log(data.food2 + "-" + food2);
-//     console.log(data.food3 + "-" + food3);
-//     console.log(data.drinks + "-" + drinks);
-// }
-
 function insertNewRecord(data) {
     var table = document.getElementById("employeeList").getElementsByTagName('tbody')[0];
     var newRow = table.insertRow(table.length);
@@ -277,21 +245,25 @@ function insertNewRecord(data) {
     cell2 = newRow.insertCell(1);
     cell2.innerHTML = data.date;
     cell3 = newRow.insertCell(2);
-    cell3.innerHTML = data.food1;
+    cell3.innerHTML = `${data.food1}<span class="tool tipOne">Protein-${food1Prot}<br>Calories-${food1Cal}</span>`;
     cell4 = newRow.insertCell(3);
-    cell4.innerHTML = data.food2;
+    cell4.innerHTML = `${data.food2}<span class="tool tipTwo">Protein-${food2Prot}<br>Calories-${food2Cal}</span>`;
     cell5 = newRow.insertCell(4);
-    cell5.innerHTML = data.food3;
+    cell5.innerHTML = `${data.food3}<span class="tool tipThree">Protein-${food3Prot}<br>Calories-${food3Cal}</span>`;
     cell6 = newRow.insertCell(5);
-    cell6.innerHTML = data.drinks;
+    cell6.innerHTML = `${data.drinks}<span class="tool tipFour">Protein-${drinksProt}<br>Calories-${drinksCal}</span>`;
     cell7 = newRow.insertCell(6);
     cell7.innerHTML = `<span class="protein">${data.totalProtein}</span>
     <span class="calories">${data.totalCalories}</span>`;
     cell7 = newRow.insertCell(7);   
     cell7.innerHTML = `<a onClick="onEdit(this)">Edit</a>
                        <a onClick="onDelete(this)">Delete</a>`;
+
+    // cell8 = newRow.insertCell(8);
+    // cell8.innerHTML = `<span>Protein${food1Prot} Calories${food1Cal}</span>`;
+                       
     console.log(data.food1 + "--protein" + "-->" + food1Prot);
-    console.log(data.food1 + "--calories" + "-->" + food1Cal);
+    console.log(data.food1 + "--calories" + "-->" + food1Cal);  
     console.log(data.food2 + "--protein" + "-->" + food2Prot);
     console.log(data.food2 + "--protein" + "-->" + food2Cal);
     console.log(data.food3 + "--protein" + "-->" + food3Prot);
