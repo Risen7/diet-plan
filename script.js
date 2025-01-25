@@ -257,7 +257,8 @@ function insertNewRecord(data) {
     <span class="calories">${data.totalCalories}</span>`;
     cell7 = newRow.insertCell(7);   
     cell7.innerHTML = `<a onClick="onEdit(this)">Edit</a>
-                       <a onClick="onDelete(this)">Delete</a>`;
+                       <a onClick="onDelete(this)">Delete</a>
+                       <input type="checkbox" name="day" id="day">`;
 
     // cell8 = newRow.insertCell(8);
     // cell8.innerHTML = `<span>Protein${food1Prot} Calories${food1Cal}</span>`;
