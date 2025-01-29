@@ -61,6 +61,7 @@ td, th {
     text-align: center;
     padding: 8px;  
     margin-inline: 0px ; 
+    /* text-wrap-mode: nowrap; */
 }
 
 td.form-1 {
@@ -370,6 +371,17 @@ span.tool {
     pointer-events: none;
 }
 
+span.tool::after{
+    content: "";
+    position: absolute;
+    border-left: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #26489a;
+    top: 46px;
+    left: 78px;
+}
+
 span.tipOne {
     left: -5px;
 }
@@ -415,3 +427,10 @@ div#addFoods span {
     width: 65%;
     height: 4px;
 } */
+
+@media (max-width: 1400px)  {
+    input.day {
+        margin-top: 10px;
+    }
+}
+    
