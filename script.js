@@ -1,6 +1,7 @@
 // https://www.youtube.com/watch?v=hBbrGFCszU4 - drop down menu
 document.addEventListener("DOMContentLoaded", loadData);
 document.getElementById("totals").addEventListener("change", totalChange);
+document.getElementById("today").addEventListener("change", dateToday);
 var selectedRow = null
 var selectedRows = null
 var food1Prot = 0;
@@ -14,6 +15,8 @@ var drinksCal = 0;
 var totalProtein = 0;
 var totalCalories = 0;
 let dietTracker = document.getElementById("dietTracker");
+const dNow = new Date ();
+
 
 function onFormSubmit() {
     if (validate()) {
@@ -240,10 +243,26 @@ function readFormData() {
 function insertNewRecord(data) {
     var table = document.getElementById("employeeList").getElementsByTagName('tbody')[0];
     var newRow = table.insertRow(table.length);
+    let today = document.getElementById("today");
+    const yyyy = dNow.getFullYear();
+    let mm = dNow.getMonth() + 1;
+    let dd = dNow.getDate();
+
+    if (dd < 10) dd = '0' + dd;
+    if (mm < 10) mm = '0' + mm;
+
+    const dateFormat = yyyy + '-' + mm + '-' + dd;
+
     cell1 = newRow.insertCell(0);
     cell1.innerHTML = data.meal;
     cell2 = newRow.insertCell(1);
-    cell2.innerHTML = data.date;
+    if(today.checked == true) {
+        cell2.innerHTML = `<div class="dataDat">${dateFormat}</div>`;
+        console.log("date ngayon");
+    } else {
+        cell2.innerHTML = `<div class="dataDat">${data.date}</div>`;
+        console.log("date na napili");
+    }
     cell3 = newRow.insertCell(2);
     cell3.innerHTML = `${data.food1}<span class="tool tipOne">Protein-${food1Prot}<br>Calories-${food1Cal}</span>`;
     cell4 = newRow.insertCell(3);
@@ -258,19 +277,19 @@ function insertNewRecord(data) {
     cell7 = newRow.insertCell(7);   
     cell7.innerHTML = `<a onClick="onEdit(this)">Edit</a>
                        <a onClick="onDelete(this)">Delete</a>
-                       <input type="checkbox" name="day" id="day">`;
+                       <input type="checkbox" name="day" class="day">`;
 
     // cell8 = newRow.insertCell(8);
     // cell8.innerHTML = `<span>Protein${food1Prot} Calories${food1Cal}</span>`;
                        
-    console.log(data.food1 + "--protein" + "-->" + food1Prot);
-    console.log(data.food1 + "--calories" + "-->" + food1Cal);  
-    console.log(data.food2 + "--protein" + "-->" + food2Prot);
-    console.log(data.food2 + "--protein" + "-->" + food2Cal);
-    console.log(data.food3 + "--protein" + "-->" + food3Prot);
-    console.log(data.food3 + "--calories" + "-->" + food3Cal);
-    console.log(data.drinks + "--protein" + "-->" + drinksProt);
-    console.log(data.drinks + "--calories" + "-->" + drinksCal);
+    // console.log(data.food1 + "--protein" + "-->" + food1Prot);
+    // console.log(data.food1 + "--calories" + "-->" + food1Cal);  
+    // console.log(data.food2 + "--protein" + "-->" + food2Prot);
+    // console.log(data.food2 + "--protein" + "-->" + food2Cal);
+    // console.log(data.food3 + "--protein" + "-->" + food3Prot);
+    // console.log(data.food3 + "--calories" + "-->" + food3Cal);
+    // console.log(data.drinks + "--protein" + "-->" + drinksProt);
+    // console.log(data.drinks + "--calories" + "-->" + drinksCal);
 }
 
 function resetForm() {
@@ -347,7 +366,6 @@ function validate() {
 function totalChange() {
     let totals = document.getElementById("totals");
     if(totals.value == "Total Protein") {
-        console.log("pasok protein")
         var protein = document.getElementsByClassName("protein");
         var calories = document.getElementsByClassName("calories");
         for (var i=0;i<protein.length;i+=1){
@@ -355,13 +373,75 @@ function totalChange() {
             calories[i].style.display = "none";
         }
     } else if(totals.value == "Total Calories") {
-        console.log("pasok calories");
         var protein = document.getElementsByClassName("protein");
         var calories = document.getElementsByClassName("calories");
         for (var i=0;i<protein.length;i+=1){
             protein[i].style.display = "none";
             calories[i].style.display = "block";
         }
-        console.log(protein.length);
     }
+}
+
+function dateToday() {
+    let today = document.getElementById("today");
+    let selectDate = document.getElementById("date");
+    if(today.checked == true) {
+        selectDate.disabled = true;
+
+    } else {
+        selectDate.disabled = false;
+    }
+    console.log(dNow);
+}
+
+function clearChk() {
+    var checkCell = document.getElementsByClassName("day");
+    for (var i=0;i<checkCell.length;i+=1){
+        checkCell[i].checked = false;
+    }
+}
+
+function addTotal() {
+    var table = document.getElementById("employeeList").getElementsByTagName('tbody')[0];
+    var newRow = table.insertRow(table.length);
+    var overallProtein = 0;
+    var overallCalories = 0;
+    var protein = document.getElementsByClassName("protein");
+    var calories = document.getElementsByClassName("calories");
+    var checkCell = document.getElementsByClassName("day");
+    let today = document.getElementById("today");
+    const yyyy = dNow.getFullYear();
+    let mm = dNow.getMonth() + 1;
+    let dd = dNow.getDate();
+    var dataDat = document.getElementsByClassName("dataDat");
+
+    if (dd < 10) dd = '0' + dd;
+    if (mm < 10) mm = '0' + mm;
+
+    const dateFormat = yyyy + '-' + mm + '-' + dd;
+    for (var i=0;i<protein.length;i+=1){
+        
+        // overallProtein += parseInt(protein[i].innerHTML) 
+        
+        if(checkCell[i].checked == true) {
+            console.log("checked");
+            overallProtein += parseInt(protein[i].innerHTML) 
+            overallCalories += parseInt(calories[i].innerHTML) 
+        } else {
+            console.log("not checked");
+        }
+    }
+    console.log("Protein -" + overallProtein);
+    console.log("Calories -" + overallCalories);
+    // cell8 = newRow.insertCell(0);    //-------------------------------\ Working
+    // cell8.innerHTML = `${dateFormat} to ${dateFormat}`; //------------/
+    cell8 = newRow.insertCell(0);   
+    cell8.innerHTML = `${dataDat[1].textContent}`;
+    cell9 = newRow.insertCell(1);  
+    cell9.innerHTML = `Total Protein - ${overallProtein}<br>
+    Total Calories - ${overallCalories}`;
+    cell10 = newRow.insertCell(2);   
+    cell10.innerHTML = `<a onClick="onDelete(this)">Delete</a>`;
+    clearChk();
+    saveData();
 }
