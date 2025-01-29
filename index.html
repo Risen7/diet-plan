@@ -20,7 +20,9 @@
                     </div>
                     <div>
                         <label>Date</label>
-                        <input type="date" name="date" id="date" >
+                        <input type="date" name="date" id="date">
+                        <label for="today">Today</label>
+                        <input type="checkbox" name="today" id="today">
                     </div>
                     <div>
                         <label>Main Dish</label>
@@ -129,7 +131,7 @@
                         
                     </tbody>
                 </table>
-                <button class="addAll">SUM</button>
+                <button class="addAll" onclick="addTotal()">SUM</button>
             </td>
         </tr>
     </table>
