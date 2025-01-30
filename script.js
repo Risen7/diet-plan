@@ -299,6 +299,7 @@ function resetForm() {
     document.getElementById("side1").value = "";
     document.getElementById("desert1").value = "";
     document.getElementById("drinks1").value = "";
+    document.getElementById("today").checked = false;   
     // document.getElementById("protein").value = "";
     selectedRow = null;
 }
@@ -450,6 +451,7 @@ function addTotal() {
     cell8 = newRow.insertCell(0);   
     cell8.innerHTML = "";
     cell8.style.background = "black";
+    cell8.style.border = "black";
     cell9 = newRow.insertCell(1);  
     cell9.innerHTML = "";
     cell9.style.background = "black";
@@ -460,8 +462,9 @@ function addTotal() {
     cell11.innerHTML = "";
     cell11.style.background = "black";
     cell12 = newRow.insertCell(4);   
-    cell12.innerHTML = "";
+    cell12.innerHTML = "DATE";
     cell12.style.background = "black";
+    cell12.style.color = "white";
     cell13 = newRow.insertCell(5);   
     cell13.innerHTML = `${dateFormat}`;
     cell13.style.background = "black";
@@ -471,6 +474,7 @@ function addTotal() {
     Total Calories - ${overallCalories}`;
     cell14.style.background = "black";
     cell14.style.color = "white";
+    cell14.style.lineHeight = "1.5";
     cell15 = newRow.insertCell(7);   
     cell15.innerHTML = `<a onClick="onDelete(this)">Delete</a>`;
     cell15.style.background = "black";
