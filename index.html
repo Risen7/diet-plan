@@ -12,102 +12,105 @@
     <table>
         <tr>
             <td class="form-1">
-                <h1>DIET TRACKER</h1>
-                <form onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
-                    <div>
-                        <label>Meal</label><label class="validation-error hide" id="mealValidationError">-This field is required.</label>
-                        <input type="text" name="meal" id="meal">
-                    </div>
-                    <div>
-                        <label>Date</label>
-                        <input type="date" name="date" id="date">
-                        <label for="today">Today</label>
-                        <input type="checkbox" name="today" id="today">
-                    </div>
-                    <div>
-                        <label>Main Dish</label>
+                <div class="cont">
+                    <h1>DIET TRACKER</h1>
+                    <form onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
                         <div>
-                            <label for="main1">
-                            <div class="select-wrapper"><select name="main1" id="main1" class="select">
-                                <option value="Chicken Dish">Chicken Dish</option>
-                                <option value="Century Tuna">Century Tuna</option>
-                                <option value="Fried Chicken">Fried Chicken</option>
-                                <option value="Monggo">Monggo</option>
-                                <option value="Beef Dish">Beef Dish</option>
-                                <option value="Sardines">Sardines</option>
-                                <option value="Spanish Style">Spanish Style</option>
-                                <option value="Fish Dish">Fish Dish</option>
-                                <option value="Pork Dish">Pork Dish</option>
-                                <option value="Egg Dish">Egg Dish</option>
-                                <option value="Champorado">Champorado</option>
-                                <option value="None">None</option>
-                            </select></div>
-                            </label>
+                            <label>Meal</label><label class="validation-error hide" id="mealValidationError">-This field is required.</label><br>
+                            <input type="text" name="meal" id="meal">
                         </div>
-                    </div>
-                    <div>
-                        <label>Side Dish</label>
                         <div>
-                            <label for="side1">
-                            <div class="select-wrapper"><select name="side1" id="side1" class="select">
-                                <option value="Tofu">Tofu</option>
-                                <option value="1/2 Rice">1/2 Rice</option>
-                                <option value="1 and 1/2 Rice">1 and 1/2 Rice</option>
-                                <option value="1 Rice">1 Rice</option>
-                                <option value="Bread">Bread</option>
-                                <option value="Egg">Egg</option>
-                                <option value="Oat Meal">Oat Meal</option>
-                                <option value="None">None</option>
-                            </select></div>
-                            </label>
+                            <label>Date</label><br>
+                            <input type="date" name="date" id="date"><br>
+                            <label for="today">Today</label>
+                            <input type="checkbox" name="today" id="today">
                         </div>
-                    </div>
-                    <div>
-                        <label>Desert</label>
                         <div>
-                            <label for="desert1">
-                            <div class="select-wrapper"><select name="desert1" id="desert1" class="select">
-                                <option value="Egg">Egg</option>
-                                <option value="Egg Pie">Egg Pie</option>
-                                <option value="Biscuit">Biscuit</option>
-                                <option value="Bread">Bread</option>
-                                <option value="Banana">Banana</option>
-                                <option value="Tofu">Tofu</option>
-                                <option value="Taho">Taho</option>
-                                <option value="Chocolate">Chocolate</option>
-                                <option value="Hopia 2pcs">Hopia 2pcs</option>
-                                <option value="Ice Cream">Ice Cream</option>
-                                <option value="None">None</option>
-                            </select></div>
-                            </label>
+                            <label>Main Dish</label>
+                            <div>
+                                <label for="main1">
+                                <div class="select-wrapper"><select name="main1" id="main1" class="select">
+                                    <option value="Chicken Dish">Chicken Dish</option>
+                                    <option value="Century Tuna">Century Tuna</option>
+                                    <option value="Fried Chicken">Fried Chicken</option>
+                                    <option value="Monggo">Monggo</option>
+                                    <option value="Beef Dish">Beef Dish</option>
+                                    <option value="Sardines">Sardines</option>
+                                    <option value="Spanish Style">Spanish Style</option>
+                                    <option value="Fish Dish">Fish Dish</option>
+                                    <option value="Pork Dish">Pork Dish</option>
+                                    <option value="Egg Dish">Egg Dish</option>
+                                    <option value="Champorado">Champorado</option>
+                                    <option value="None">None</option>
+                                </select></div>
+                                </label>
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <label>Drinks</label>
                         <div>
-                            <label for="drinks1">
-                            <div class="select-wrapper"><select name="drinks1" id="drinks1" class="select">
-                                <option value="Milk">Milk</option>
-                                <option value="Vitamilk">Vitamilk</option>
-                                <option value="Yakult">Yakult</option>
-                                <option value="Water">Water</option>
-                                <option value="Softdrinks">Softdrinks</option>
-                                <option value="Soy Secretz">Soy Secretz</option>
-                                <option value="Gatorade">Gatorade</option>
-                                <option value="Whey Protein">Whey Protein</option>
-                                <option value="None">None</option>
-                            </select></div>
-                            </label>
+                            <label>Side Dish</label>
+                            <div>
+                                <label for="side1">
+                                <div class="select-wrapper"><select name="side1" id="side1" class="select">
+                                    <option value="Tofu">Tofu</option>
+                                    <option value="1/2 Rice">1/2 Rice</option>
+                                    <option value="1 and 1/2 Rice">1 and 1/2 Rice</option>
+                                    <option value="1 Rice">1 Rice</option>
+                                    <option value="Bread">Bread</option>
+                                    <option value="Egg">Egg</option>
+                                    <option value="Oat Meal">Oat Meal</option>
+                                    <option value="None">None</option>
+                                </select></div>
+                                </label>
+                            </div>
                         </div>
-                    </div>
-                    <!-- <div id="addFoods">
-                        <label>Additional&nbsp;</label><span id="line"></span>
-                        <input type="checkbox" name="dropDown" id="dropDown">
-                    </div> -->
-                    <div  class="form-action-buttons">
-                        <input type="submit" value="Submit">
-                    </div>
-                </form>
+                        <div>
+                            <label>Desert</label>
+                            <div>
+                                <label for="desert1">
+                                <div class="select-wrapper"><select name="desert1" id="desert1" class="select">
+                                    <option value="Egg">Egg</option>
+                                    <option value="Egg Pie">Egg Pie</option>
+                                    <option value="Biscuit">Biscuit</option>
+                                    <option value="Bread">Bread</option>
+                                    <option value="Banana">Banana</option>
+                                    <option value="Tofu">Tofu</option>
+                                    <option value="Taho">Taho</option>
+                                    <option value="Chocolate">Chocolate</option>
+                                    <option value="Hopia 2pcs">Hopia 2pcs</option>
+                                    <option value="Ice Cream">Ice Cream</option>
+                                    <option value="None">None</option>
+                                </select></div>
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <label>Drinks</label>
+                            <div>
+                                <label for="drinks1">
+                                <div class="select-wrapper"><select name="drinks1" id="drinks1" class="select">
+                                    <option value="Milk">Milk</option>
+                                    <option value="Vitamilk">Vitamilk</option>
+                                    <option value="Yakult">Yakult</option>
+                                    <option value="Water">Water</option>
+                                    <option value="Softdrinks">Softdrinks</option>
+                                    <option value="Soy Secretz">Soy Secretz</option>
+                                    <option value="Gatorade">Gatorade</option>
+                                    <option value="Whey Protein">Whey Protein</option>
+                                    <option value="None">None</option>
+                                </select></div>
+                                </label>
+                            </div>
+                        </div>
+                        <!-- <div id="addFoods">
+                            <label>Additional&nbsp;</label><span id="line"></span>
+                            <input type="checkbox" name="dropDown" id="dropDown">
+                        </div> -->
+                        <div  class="form-action-buttons">
+                            <input type="submit" value="Submit">
+                        </div>
+                    </form>
+                </div>
+
             </td>
             <td class="form-2">
                 <table class="list" id="employeeList">
@@ -131,7 +134,7 @@
                         
                     </tbody>
                 </table>
-                <button class="addAll" onclick="addTotal()">SUM</button>
+                <button class="addAll" onclick="addTotal()">DAILY TOTAL</button>
             </td>
         </tr>
     </table>
