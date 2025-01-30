@@ -385,11 +385,19 @@ function totalChange() {
 function dateToday() {
     let today = document.getElementById("today");
     let selectDate = document.getElementById("date");
-    if(today.checked == true) {
-        selectDate.disabled = true;
+    const yyyy = dNow.getFullYear();
+    let mm = dNow.getMonth() + 1;
+    let dd = dNow.getDate();
 
+    if (dd < 10) dd = '0' + dd;
+    if (mm < 10) mm = '0' + mm;
+
+    const dateFormat = yyyy + '-' + mm + '-' + dd;
+    if(today.checked == true) {
+        // selectDate.disabled = true;
+        selectDate.value = dateFormat;
     } else {
-        selectDate.disabled = false;
+        // selectDate.disabled = false;
     }
     console.log(dNow);
 }
@@ -414,6 +422,7 @@ function addTotal() {
     let mm = dNow.getMonth() + 1;
     let dd = dNow.getDate();
     var dataDat = document.getElementsByClassName("dataDat");
+    var dateEncode;
 
     if (dd < 10) dd = '0' + dd;
     if (mm < 10) mm = '0' + mm;
@@ -427,21 +436,45 @@ function addTotal() {
             console.log("checked");
             overallProtein += parseInt(protein[i].innerHTML) 
             overallCalories += parseInt(calories[i].innerHTML) 
+            dateEncode = dataDat[i].textContent;
         } else {
             console.log("not checked");
+            dateEncode = null;
         }
+        console.log(`${dateEncode}`);
     }
     console.log("Protein -" + overallProtein);
     console.log("Calories -" + overallCalories);
     // cell8 = newRow.insertCell(0);    //-------------------------------\ Working
     // cell8.innerHTML = `${dateFormat} to ${dateFormat}`; //------------/
     cell8 = newRow.insertCell(0);   
-    cell8.innerHTML = `${dataDat[1].textContent}`;
+    cell8.innerHTML = "";
+    cell8.style.background = "black";
     cell9 = newRow.insertCell(1);  
-    cell9.innerHTML = `Total Protein - ${overallProtein}<br>
-    Total Calories - ${overallCalories}`;
+    cell9.innerHTML = "";
+    cell9.style.background = "black";
     cell10 = newRow.insertCell(2);   
-    cell10.innerHTML = `<a onClick="onDelete(this)">Delete</a>`;
+    cell10.innerHTML = "";
+    cell10.style.background = "black ";
+    cell11 = newRow.insertCell(3);   
+    cell11.innerHTML = "";
+    cell11.style.background = "black";
+    cell12 = newRow.insertCell(4);   
+    cell12.innerHTML = "";
+    cell12.style.background = "black";
+    cell13 = newRow.insertCell(5);   
+    cell13.innerHTML = `${dateFormat}`;
+    cell13.style.background = "black";
+    cell13.style.color = "white";
+    cell14 = newRow.insertCell(6);   
+    cell14.innerHTML = `DAILY<br>Total Protein - ${overallProtein}<br>
+    Total Calories - ${overallCalories}`;
+    cell14.style.background = "black";
+    cell14.style.color = "white";
+    cell15 = newRow.insertCell(7);   
+    cell15.innerHTML = `<a onClick="onDelete(this)">Delete</a>`;
+    cell15.style.background = "black";
+    cell15.style.color = "white";
     clearChk();
     saveData();
 }
