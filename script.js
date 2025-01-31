@@ -15,6 +15,7 @@ var drinksCal = 0;
 var totalProtein = 0;
 var totalCalories = 0;
 let dietTracker = document.getElementById("dietTracker");
+var dietList = document.getElementById("dietList")
 const dNow = new Date ();
 
 
@@ -481,4 +482,29 @@ function addTotal() {
     cell15.style.color = "white";
     clearChk();
     saveData();
+}
+
+function saveAll() {
+    var saveList = document.getElementById("employeeList");
+    localStorage.setItem("saveRecord",saveList.innerHTML);
+};
+
+function addToHistory() {
+    let text = "It will clear the transaction data and move to history. Are you sure you want to save?"
+    var saveList = document.getElementById("employeeList");
+    if(confirm(text) == true) {
+        const li = document.createElement('history') 
+        const titleIn = document.createElement('h1') 
+        li.appendChild(titleIn);
+        li.innerHTML = `<div id="titleDiv">
+        <h1>DATE HERE</h1>
+        <div id="btnSpanX"><p>x</p><span id="drop"></div></span>
+        </div>
+        ${saveList.innerHTML}`;
+        dietList.appendChild(li);
+        saveAll();
+        alert("Data moved to History");
+    } else {
+        alert("Data not moved.")
+    }
 }
