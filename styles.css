@@ -137,7 +137,7 @@ input[type=submit]{
     box-shadow: none;
 }
 
-input[type=submit]:hover, button.addAll:hover {
+input[type=submit]:hover, button.addAll:hover, button.saveBtn:hover {
     background: linear-gradient(45deg, royalblue, pink);
 }
 
@@ -204,7 +204,7 @@ thead tr th:hover {
     background: linear-gradient(45deg, royalblue, pink);
 }
 
-div.form-action-buttons input, button.addAll {
+div.form-action-buttons input, button.addAll, button.saveBtn {
     background: #4f7de7;
     color: white;
     font-size: 1.5rem;
@@ -218,6 +218,14 @@ button.addAll {
     margin: 20px;
     width: 35%;
     padding: 14px 20px;
+}
+
+button.saveBtn {
+    background: rgb(46, 46, 46);
+    margin-top: 30px;
+    padding: 14px 20px;
+    width: 100%;
+    cursor: pointer;
 }
 
 td span.count {
