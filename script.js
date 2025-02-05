@@ -483,28 +483,40 @@ function addTotal() {
     clearChk();
     saveData();
 }
-
+saveAll();
 function saveAll() {
     var saveList = document.getElementById("employeeList");
     localStorage.setItem("saveRecord",saveList.innerHTML);
 };
 
+
 function addToHistory() {
     let text = "It will clear the transaction data and move to history. Are you sure you want to save?"
     var saveList = document.getElementById("employeeList");
+    const dietDiet = localStorage.getItem("saveRecord");
+    const yyyy = dNow.getFullYear();
+    let mm = dNow.getMonth() + 1;
+    let dd = dNow.getDate();
+    var dataDat = document.getElementsByClassName("dataDat");
+
+    if (dd < 10) dd = '0' + dd;
+    if (mm < 10) mm = '0' + mm;
+
+    const dateFormat = yyyy + '-' + mm + '-' + dd;
+
     if(confirm(text) == true) {
-        const li = document.createElement('history') 
-        const titleIn = document.createElement('h1') 
+        const li = document.createElement('history'); 
+        const titleIn = document.createElement('h1'); 
+        let dietBG = document.getElementById("dietHistory");
         li.appendChild(titleIn);
         li.innerHTML = `<div id="titleDiv">
-        <h1>DATE HERE</h1>
-        <div id="btnSpanX"><p>x</p><span id="drop"></div></span>
-        </div>
-        ${saveList.innerHTML}`;
+        <div id="btnSpanX"><h1>${dateFormat}</h1><div id="btnXX"><p>x</p><span id="drop"></div></div></span>
+        </div>${saveList.innerHTML}`;
         dietList.appendChild(li);
+        dietBG.style.background = "white";
         saveAll();
         alert("Data moved to History");
     } else {
-        alert("Data not moved.")
+        alert("Data not moved.");
     }
 }
