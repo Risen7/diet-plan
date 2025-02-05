@@ -7,6 +7,7 @@ body {
     /* height: 97.8vh; */
     /* height: 100%; */
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -417,6 +418,22 @@ td:hover:nth-child(6) span.tipFour {
     visibility: visible;
 }
 
+/* div#dietHistory {
+    background: white;
+} */
+
+history span.tool {
+    display: none;
+}
+
+history a {
+    display: none;
+}
+
+div#dietList {
+    padding: 25px;
+}
+
 /* button.addAll {
     font-size: 1rem;
     padding: 10px;
@@ -444,6 +461,52 @@ div#addFoods span {
     width: 65%;
     height: 4px;
 } */
+
+#drop::after {
+    content: "\25BC";
+    color: #c7c7c7;
+    padding: 10px;
+    background: black;
+    pointer-events: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 0;
+    left: 10px;
+}
+
+#drop:hover::after {
+    background-color: #494949;
+}
+
+div#btnSpanX {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+span#drop {
+    position: relative;
+}
+
+div#btnXX p {
+    background: #f00;
+    border-radius: 4px;
+    padding: 3px 10px;
+    transition: all 0.4s;
+}   
+
+div#btnSpanX p:hover {
+    background: rgb(252, 94, 94);
+}
+
+div#btnXX {
+    display: flex;
+    flex-direction: row;
+    margin-right: 45px;
+}
 
 @media (max-width: 1400px)  {
     input.day {
