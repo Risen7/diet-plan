@@ -15,7 +15,8 @@ var drinksCal = 0;
 var totalProtein = 0;
 var totalCalories = 0;
 let dietTracker = document.getElementById("dietTracker");
-var dietList = document.getElementById("dietList")
+var dietList = document.getElementById("dietList");
+var dietForm2 = document.getElementById("form-2");
 const dNow = new Date ();
 
 
@@ -511,7 +512,7 @@ function addToHistory() {
         li.appendChild(titleIn);
         li.innerHTML = `<div id="titleDiv">
         <div id="btnSpanX"><h1>${dateFormat}</h1><div id="btnXX"><p>x</p><span id="drop"></div></div></span>
-        </div>${saveList.innerHTML}`;
+        </div>${dietForm2.innerHTML}`;
         dietList.appendChild(li);
         dietBG.style.background = "white";
         saveAll();
