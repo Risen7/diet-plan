@@ -1,4 +1,5 @@
 // https://www.youtube.com/watch?v=hBbrGFCszU4 - drop down menu
+// Diet Tracker JS v1.87
 document.addEventListener("DOMContentLoaded", loadData);
 document.getElementById("totals").addEventListener("change", totalChange);
 document.getElementById("today").addEventListener("change", dateToday);
@@ -44,6 +45,7 @@ function saveData() {
 
 function loadData() {
     dietTracker.innerHTML = localStorage.getItem("dietDat");
+    dietList.innerHTML = localStorage.getItem("saveHistory");
     totalChange();
 }
 
@@ -487,8 +489,12 @@ function addTotal() {
 saveAll();
 function saveAll() {
     var saveList = document.getElementById("employeeList");
-    localStorage.setItem("saveRecord",saveList.innerHTML);
+    localStorage.setItem("saveRecord", saveList.innerHTML);
 };
+
+function saveHist() {
+    localStorage.setItem("saveHistory", dietList.innerHTML);
+}
 
 
 function addToHistory() {
@@ -516,8 +522,17 @@ function addToHistory() {
         dietList.appendChild(li);
         dietBG.style.background = "white";
         saveAll();
+        saveHist();
         alert("Data moved to History");
     } else {
         alert("Data not moved.");
     }
 }
+
+dietList.addEventListener("click", function(e) {
+    if(e.target.tagName === "SPAN") {
+        e.target.parentElement.parentElement.parentElement.parentElement.children[1].classList.toggle("active");
+    } else if (e.target.tagName === "P") {
+        e.target.parentElement.parentElement.parentElement.parentElement.remove();
+    }
+})
