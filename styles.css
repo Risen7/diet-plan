@@ -467,7 +467,7 @@ div#addFoods span {
     color: #c7c7c7;
     padding: 10px;
     background: black;
-    pointer-events: none;
+    /* pointer-events: none; */
     border-radius: 5px;
     transition: all 0.3s ease;
     position: absolute;
@@ -506,6 +506,18 @@ div#btnXX {
     display: flex;
     flex-direction: row;
     margin-right: 45px;
+}
+
+history button.addAll {
+    display: none;
+}
+
+history table.list {
+    display: none;
+}
+
+history table.active {
+    display: block;
 }
 
 @media (max-width: 1400px)  {
