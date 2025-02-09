@@ -520,7 +520,7 @@ function addToHistory() {
         <div id="btnSpanX"><h1>${dateFormat}</h1><div id="btnXX"><p>x</p><span id="drop"></div></div></span>
         </div>${dietForm2.innerHTML}`;
         dietList.appendChild(li);
-        dietBG.style.background = "white";
+        // dietBG.style.background = "white";
         saveAll();
         saveHist();
         alert("Data moved to History");
@@ -534,5 +534,7 @@ dietList.addEventListener("click", function(e) {
         e.target.parentElement.parentElement.parentElement.parentElement.children[1].classList.toggle("active");
     } else if (e.target.tagName === "P") {
         e.target.parentElement.parentElement.parentElement.parentElement.remove();
+        saveAll();
+        saveHist();
     }
 })
