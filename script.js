@@ -534,7 +534,7 @@ dietList.addEventListener("click", function(e) {
         e.target.parentElement.parentElement.parentElement.parentElement.children[1].classList.toggle("active");
     } else if (e.target.tagName === "P") {
         e.target.parentElement.parentElement.parentElement.parentElement.remove();
-        saveAll();
-        saveHist();
     }
+    saveAll();
+    saveHist();
 })
