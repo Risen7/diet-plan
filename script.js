@@ -22,21 +22,28 @@ const dNow = new Date ();
 
 
 function onFormSubmit() {
-    if (validate()) {
-        var formData = readFormData();
-        if (selectedRow == null) {
-            insertNewRecord(formData);
+    let text = "Submit record?";
+    if (confirm(text) == true) {
+        if (validate()) {
+            alert("You submitted the Record");
+            var formData = readFormData();
+            if (selectedRow == null) {
+                insertNewRecord(formData);
+                
+            }else{
+                updateRecord(formData);
+                
             
-        }else{
-            updateRecord(formData);
-            
-        
-        }
-        resetForm();
-        totalChange();
-    };
+            }
+            resetForm();
+            totalChange();
+        };
+    
+        saveData();
+    } else {
+        alert("You Cancelled");
+    }
 
-    saveData();
 }
 
 function saveData() {
@@ -428,6 +435,7 @@ function addTotal() {
     let dd = dNow.getDate();
     var dataDat = document.getElementsByClassName("dataDat");
     var dateEncode;
+    let checkCellCount = 0;
 
     if (dd < 10) dd = '0' + dd;
     if (mm < 10) mm = '0' + mm;
@@ -436,14 +444,14 @@ function addTotal() {
     for (var i=0;i<protein.length;i+=1){
         
         // overallProtein += parseInt(protein[i].innerHTML) 
-        
         if(checkCell[i].checked == true) {
-            console.log("checked");
+            // console.log("checked");
             overallProtein += parseInt(protein[i].innerHTML) 
             overallCalories += parseInt(calories[i].innerHTML) 
             dateEncode = dataDat[i].textContent;
+            checkCell[i].style.display = "none";
         } else {
-            console.log("not checked");
+            // console.log("not checked");
             dateEncode = null;
         }
         console.log(`${dateEncode}`);
@@ -517,7 +525,7 @@ function addToHistory() {
         let dietBG = document.getElementById("dietHistory");
         li.appendChild(titleIn);
         li.innerHTML = `<div id="titleDiv">
-        <div id="btnSpanX"><h1>${dateFormat}</h1><div id="btnXX"><p>x</p><span id="drop"></div></div></span>
+        <div id="btnSpanX"><h1>${dateFormat} to ${dateFormat}</h1><div id="btnXX"><p>x</p><span id="drop"></div></div></span>
         </div>${dietForm2.innerHTML}`;
         dietList.appendChild(li);
         // dietBG.style.background = "white";
@@ -533,7 +541,13 @@ dietList.addEventListener("click", function(e) {
     if(e.target.tagName === "SPAN") {
         e.target.parentElement.parentElement.parentElement.parentElement.children[1].classList.toggle("active");
     } else if (e.target.tagName === "P") {
+        let text = prompt('This will delete your record! Type "CONFIRM"');
+        if(text == "CONFIRM") {
+        alert("Delete Sucessful");
         e.target.parentElement.parentElement.parentElement.parentElement.remove();
+        } else {
+            alert("Not Deleted");
+        }    
     }
     saveAll();
     saveHist();
