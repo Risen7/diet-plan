@@ -1,5 +1,5 @@
 // https://www.youtube.com/watch?v=hBbrGFCszU4 - drop down menu
-// Diet Tracker JS v1.87
+// Diet Tracker JS v1.91
 document.addEventListener("DOMContentLoaded", loadData);
 document.getElementById("totals").addEventListener("change", totalChange);
 document.getElementById("today").addEventListener("change", dateToday);
