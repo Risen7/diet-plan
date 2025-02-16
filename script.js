@@ -1,5 +1,5 @@
 // https://www.youtube.com/watch?v=hBbrGFCszU4 - drop down menu
-// Diet Tracker JS v1.91
+// Diet Tracker JS v1.92
 document.addEventListener("DOMContentLoaded", loadData);
 document.getElementById("totals").addEventListener("change", totalChange);
 document.getElementById("today").addEventListener("change", dateToday);
@@ -525,10 +525,12 @@ function addToHistory() {
         let dietBG = document.getElementById("dietHistory");
         li.appendChild(titleIn);
         li.innerHTML = `<div id="titleDiv">
-        <div id="btnSpanX"><h1>${dateFormat} to ${dateFormat}</h1><div id="btnXX"><p>x</p><span id="drop"></div></div></span>
+        <div id="btnSpanX"><h1>${dateFormat}</h1><div id="btnXX"><p>x</p><span id="drop"></div></div></span>
         </div>${dietForm2.innerHTML}`;
         dietList.appendChild(li);
         // dietBG.style.background = "white";
+        dietTracker.innerHTML = "";
+        saveData();
         saveAll();
         saveHist();
         alert("Data moved to History");
